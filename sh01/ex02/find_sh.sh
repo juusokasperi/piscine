@@ -1,2 +1,2 @@
 #! /bin/bash
-find . -type f -name "*.sh" -exec basename {} .sh \;
+find . -name "*.sh" -exec basename {} .sh \;

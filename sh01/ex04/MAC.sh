@@ -1,2 +1,2 @@
 #! /bin/bash
-ifconfig | grep ether | cut -b 15-31
+ip -a link | grep ether | cut -b 16-32
