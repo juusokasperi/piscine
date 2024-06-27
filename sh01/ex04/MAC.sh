@@ -1,2 +1,2 @@
 #! /bin/bash
-ip -a link | grep ether | cut -b 16-32
+ifconfig -a | grep ether | awk '{print $2}'
