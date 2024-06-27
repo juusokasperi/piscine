@@ -17,7 +17,7 @@ void	print_character(char c)
 	write(1, &c, 1);
 }
 
-void	print_combination(char a, char b, char c)
+void	print_combination(int a, int b, int c)
 {
 	print_character(a + '0');
 	print_character(b + '0');
