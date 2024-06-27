@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 12:00:50 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/27 12:02:17 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/27 12:59:11 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/27 13:11:32 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void print_char(
 
-void	ft_print_alphabet(void)
+void ft_print_comb2(void)
 {
-	int	i;
+	int a;
+	int b;
 
-	i = 'a';
-	while (i <= 'z')
+	a = 0;
+	b = 0;
+
+	while (a <= 99)
 	{
-		write(1, &i, 1);
-		i++;
+		b = a + 1
+		while (b <= 99)
+		{
+			print_char(a);
+			print_char(' ');
+			print_char(b);
+			print_char(',');
+			print_char(' ');
+			b = b + 1;
+		}
+		a = a + 1
 	}
 }
