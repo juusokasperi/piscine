@@ -1,44 +1,48 @@
 #include <unistd.h>
 
-void ft_print_comb(void)
+void	print_character(char c)
 {
-    int a;
-    int b;
-    int c;
-    char charA;
-    char charB;
-    char charC;
-
-    a = 0;
-    while(a <= 7)
-    {
-        b = a + 1;
-        while(b <= 8)
-        {
-            c = b + 1;
-            while (c <= 9)
-            {
-                charA = a + '0';
-                charB = b + '0';
-                charC = c + '0';
-                write(1, &charA, 1);
-                write(1, &charB, 1);
-                write(1, &charC, 1);
-                if (a == 7 && b == 8 && c == 9)
-                {
-                    return;
-                }
-                write(1, ",", 1);
-                write(1, " ", 1);
-                c++;
-            }
-            b++;
-        }
-        a++;
-    }
+	write(1, &c, 1);
 }
 
-int main(void)
+void	print_combination(char a, char b, char c)
 {
-    ft_print_comb();
+	print_character(a + '0');
+	print_character(b + '0');
+	print_character(c + '0');
+	if (a == 7 && b == 8 && c == 9)
+	{
+		return ;
+	}
+	print_character(',');
+	print_character(' ');
+}
+
+void	ft_print_comb(void)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = 0;
+	while (a <= 7)
+	{
+		b = a + 1;
+		while (b <= 8)
+		{
+			c = b + 1;
+			while (c <= 9)
+			{
+				print_combination(a, b, c);
+				c++;
+			}
+			b++;
+		}
+		a++;
+	}
+}
+
+int	main(void)
+{
+	ft_print_comb();
 }

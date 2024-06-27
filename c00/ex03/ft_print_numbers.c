@@ -3,13 +3,13 @@
 void	ft_print_numbers(void)
 {
 	int	i;
-    char c;
+	char	c;
 
 	i = 0;
 	while (i <= 9)
 	{
-        c = i + '0';
-        write(1, &c, 1);
+		c = i + '0';
+		write(1, &c, 1);
 		i++;
 	}
 }
