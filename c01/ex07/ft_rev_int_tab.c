@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 17:38:45 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/28 20:30:41 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/28 19:34:45 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/28 20:47:39 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_ft(int *nbr)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	*nbr = 42;
+	int	spare;
+	int	*start;
+	int	*end;
+
+	start = tab;
+	end = tab + (size - 1);
+	while (start < end)
+	{
+		spare = *start;
+		*start = *end;
+		*end = spare;
+		start++;
+		end--;
+	}
 }
