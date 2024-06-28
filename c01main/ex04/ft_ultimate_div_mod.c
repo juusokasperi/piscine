@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testing_pointers.c                                 :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 17:57:49 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/27 19:05:02 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/27 20:23:20 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/28 11:26:01 by juusorinta       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-
-void	ft_ft(int *nbr)
+void	print_char(char c)
 {
-	char c;
-	*nbr = 42;
+	write(1, &c, 1);
 }
 
+void	ft_ultimate_div_mod(int *a, int *b)
+{
+	int	c;
+
+	c = *a / *b;
+	*b = *a % *b;
+	*a = c;
+}
 
 int	main(void)
 {
-	int a;
-	int *nbr;
-	char c;
+	int	a;
+	int	b;
 
-	nbr = &a;
-
-	a = 1;
-	
-	ft_ft(nbr);
-	c = a / 10 + '0';
-        write(1, &c, 1);
-        c = a % 10 + '0';
-        write(1, &c, 1);
-
-	/*	
-	*nbr = 10;
-	c = *nbr / 10 + '0';
-	write(1, &c, 1);
-	c = *nbr % 10 + '0';
-	write(1, &c, 1);
-*/
+	a = 17;
+	b = 5;
+	ft_ultimate_div_mod(&a, &b);
+	print_char(a + '0');
+	print_char(b + '0');
 }
