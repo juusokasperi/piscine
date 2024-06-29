@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 13:19:26 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/29 13:49:25 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_str_is_alpha(char *str)
+int	ft_str_is_uppercase(char *str)
 {
 	while (*str != '\0')
 	{
-		if(!((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z')))
+		if (!(*str >= 'A' && *str <= 'Z'))
 		{
 			return (0);
 		}
@@ -31,8 +31,8 @@ void	main(void)
 	int	b;
 	char	c;
 
-	str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.";
-	b = ft_str_is_alpha(str);
+	str = "A";
+	b = ft_str_is_uppercase(str);
 	c = b + '0';
 	write(1, &c, 1);
 }
