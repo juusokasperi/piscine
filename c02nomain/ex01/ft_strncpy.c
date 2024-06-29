@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 17:38:45 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/27 19:41:07 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/28 21:31:00 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/28 23:16:34 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_ultimate_ft(int *********nbr)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	*********nbr = 42;
+	int unsigned	i;
+
+	i = 0;
+	while (i < n)
+	{
+		dest[i] = src[i];
+		i++;
+		if (src[i] == '\0' && i < n)
+		{
+			while (i < n)
+			{
+				dest[i] = '\0';
+				i++;
+			}
+		}
+	}
+	return (dest);
 }

@@ -1,49 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 19:44:56 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/28 22:42:08 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/28 19:34:45 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/29 12:51:26 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_swap(int *a, int *b)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	int c;
-	c = *a;
-	*a = *b;
-	*b = c;
+	int temp;
+	int i;
+
+	i = 0;
+	while(i < size / 2)
+	{
+		temp = tab[i];
+		tab[i] = tab[size - (i + 1)];
+		tab[size - (i + 1)] = temp;
+		i++;
+	}
 }
 
 void	main(void)
 {
-	int a;
-	int b;
-	char a_char;
-	char b_char;
-	char *c;
+	int	tab[]= {0, 1, 2, 3, 4};
+	char	c;
 
-	c = "string";
+	ft_rev_int_tab(tab, 5);
+	c = tab[0] + '0';
+	write(1, &c, 1);
+	c = tab[1] + '0';
+        write(1, &c, 1);
+	c = tab[2] + '0';
+	write(1, &c, 1);
+	c = tab[3] + '0';
+        write(1, &c, 1);
+	c = tab[4] + '0';
+        write(1, &c, 1);
 
-	c = c + 1;
-
-	a = 1;
-	b = 2;
-	a_char = a + '0';
-	b_char = b + '0';
-
-	write(1, &a_char, 1);
-	write(1, &b_char, 1);
-	write(1, c, 4);
-	ft_swap(&a, &b);
-        a_char = a + '0';
-        b_char = b + '0';
-
-        write(1, &a_char, 1);
-        write(1, &b_char, 1);
 }
