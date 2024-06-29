@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 14:41:42 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/29 14:44:27 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strupcase(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		write(1, &str[i], 1);
-		if (str[i] >= 'a' && str[i] <= 'z')
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
-			str[i] = str[i] - 32;
+			str[i] = str[i] + 32;
 		}
 		i++;
 	}
@@ -31,9 +30,9 @@ char	*ft_strupcase(char *str)
 
 void	main(void)
 {
-	char	str[] = "abcdefghijklmnopqrstuvwxyz";
+	char	str[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char	*b;
 
-	b = ft_strupcase(str);
+	b = ft_strlowcase(str);
 	write(1, str, 26);
 }

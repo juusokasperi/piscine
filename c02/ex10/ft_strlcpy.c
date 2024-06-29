@@ -1,39 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 14:41:42 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/29 18:41:36 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/29 19:00:53 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strupcase(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
+	int	l;
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	l = 0;
+	while (src[i] != '\0')
 	{
-		write(1, &str[i], 1);
-		if (str[i] >= 'a' && str[i] <= 'z')
+		while (i > size)
 		{
-			str[i] = str[i] - 32;
+			dest[i] = src[i];
+			i++;
+			l++;
 		}
+		if (i - 1 == size)
+		{
+			dest[i] = '\0';
+		}
+		l++;
 		i++;
+		
 	}
-	return (str);
+	return(l);
 }
 
-void	main(void)
+void	print_char(char c)
 {
-	char	str[] = "abcdefghijklmnopqrstuvwxyz";
-	char	*b;
+	write(1, &c, 1);
+}
 
-	b = ft_strupcase(str);
-	write(1, str, 26);
+int	main(void)
+{
+	char	src[] = "Testi.";
+	char	dest[3];
+	unsigned int	a;
+
+	a = ft_strlcpy(dest, src, 3);
+	
+	write(1, src, 7);
+
+//	print_char(a + '0');
+//	return (0);
 }
