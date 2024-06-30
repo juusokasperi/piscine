@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 14:44:27 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/30 20:01:26 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ char	*ft_strlowcase(char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
-		{
 			str[i] = str[i] + 32;
-		}
 		i++;
 	}
 	return (str);
@@ -30,9 +28,9 @@ char	*ft_strlowcase(char *str)
 
 void	main(void)
 {
-	char	str[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char	str[] = "abc!!!123!!!ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char	*b;
 
 	b = ft_strlowcase(str);
-	write(1, str, 26);
+	write(1, str, 38);
 }

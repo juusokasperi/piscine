@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 19:52:35 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/30 18:47:26 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/30 19:10:15 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_str_is_alpha(char *str)
+void	*ft_print_memory(void *addr, unsigned int size);
+
+int	main(void)
 {
-	while (*str != '\0')
+	char	str[] = "Bonjour les amin";
+	char	dest[100];
+	char	*ptr;
+
+	ft_print_memory(str, 16);
+	ptr = dest;
+	while (*ptr != '\0')
 	{
-		if(!((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z')))
-			return (0);
-		str = str + 1;
+		write(1, ptr, 1);
+		ptr = ptr + 1;
 	}
-	return (1);
-}
-
-void	main(void)
-{
-	char	*str;
-	int	b;
-	char	c;
-
-	str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	b = ft_str_is_alpha(str);
-	c = b + '0';
-	write(1, &c, 1);
+	return (0);
 }

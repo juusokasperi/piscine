@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:41:36 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 19:00:53 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/30 20:11:02 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,5 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		}
 		dest[i] = '\0';
 	}
-//	Tällä palauttaa sourcen pituuden, ilman destinationin pituuden
-//	while (src[i] != '\0')
-//		i++;
 	return (i);
 }

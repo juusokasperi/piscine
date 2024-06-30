@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 14:41:42 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/30 20:00:34 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,8 @@ char	*ft_strupcase(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		write(1, &str[i], 1);
 		if (str[i] >= 'a' && str[i] <= 'z')
-		{
 			str[i] = str[i] - 32;
-		}
 		i++;
 	}
 	return (str);
@@ -31,9 +28,9 @@ char	*ft_strupcase(char *str)
 
 void	main(void)
 {
-	char	str[] = "abcdefghijklmnopqrstuvwxyz";
+	char	str[] = "1234ABCD !!00!! abcdefghijklmnopqrstuvwxyz";
 	char	*b;
 
 	b = ft_strupcase(str);
-	write(1, str, 26);
+	write(1, str, 42);
 }

@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 13:38:29 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/30 19:53:45 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int	ft_str_is_numeric(char *str)
 	while (*str != '\0')
 	{
 		if (!(*str >= '0' && *str <= '9'))
-		{
 			return (0);
-		}
 		str = str + 1;
 	}
 	return (1);

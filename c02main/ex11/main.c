@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 19:52:35 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/30 17:09:30 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/30 18:40:19 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	ft_str_is_alpha(char *str)
-{
-	while (*str != '\0')
-	{
-		if(!((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z')))
-			return (0);
-		str = str + 1;
-	}
-	return (1);
-}
+void	ft_putstr_non_printable(char *str);
 
 void	main(void)
 {
 	char	*str;
-	int	b;
-	char	c;
 
-	str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	b = ft_str_is_alpha(str);
-	c = b + '0';
-	write(1, &c, 1);
+	str = "Coucou\ntu\tvas bien ?";
+	ft_putstr_non_printable(str);
 }

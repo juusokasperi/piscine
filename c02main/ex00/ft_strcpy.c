@@ -28,7 +28,6 @@ void	main(void)
 {
 	char	src[6] = "Testi";
 	char	dest[6];
-	int	i;
 	char	*ptr;
 
 	ft_strcpy(dest, src);

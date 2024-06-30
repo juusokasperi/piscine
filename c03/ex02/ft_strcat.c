@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 19:52:35 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/30 19:14:19 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/30 19:34:47 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-int	ft_str_is_alpha(char *str)
+char	*ft_strcat(char *dest, char *src)
 {
-	while (*str != '\0')
+	int	i;
+	int	j;
+
+	if (src[0] == '\0')
+		return (dest);
+	i = 0;
+	j = 0;
+	while (src[i] != '\0')
 	{
-		if(!((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z')))
-			return (0);
-		str = str + 1;
+		while (dest[j] != '\0')
+			j++;
+		dest[j] = src[i];
+		j++;
+		i++;
 	}
-	return (1);
-}
-
-void	main(void)
-{
-	char	*str;
-	int	b;
-	char	c;
-
-	str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	b = ft_str_is_alpha(str);
-	c = b + '0';
-	write(1, &c, 1);
+	dest[j] = '\0';
+	return (dest);
 }
