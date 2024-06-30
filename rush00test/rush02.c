@@ -11,17 +11,15 @@ void    line(int x, char c1, char c2)
 
     ft_putchar(c1);
     i = 1;
-    while(i < x - 1)
+    while (i < x)
     {
-        ft_putchar(c2);
+        if (i < x - 1)
+            ft_putchar(c2);
+        if (i == x -1)
+            ft_putchar(c1);
         i++;
     }
-    while(i == x - 1)
-    {
-        ft_putchar(c1);
-        ft_putchar('\n');
-        i++;
-    }
+    ft_putchar('\n');
 }
 
 void    rush(int x, int y)
@@ -30,28 +28,21 @@ void    rush(int x, int y)
 
     h = 0;
     if (x < 1 || y < 1)
-    {
         return ;
-    }
-    while (h == 0)
+    while (h < y)
     {
-        line(x, 'A', 'B');
-        h++;
-    }
-    while (h > 0 && h < y - 1)
-    {
-        line(x, 'B', ' ');
-        h++;
-    }
-    while (h == y - 1)
-    {
-        line(x, 'C', 'B');
+        if (h == 0)
+            line(x, 'A', 'B');
+        if (h > 0 && h < y - 1)
+            line(x, 'B', ' ');
+        if (h == y - 1)
+            line(x, 'C', 'B');
         h++;
     }
 }
 
 int    main(void)
 {
-    rush(0, 0);
+    rush(1, 5);
     return (0);
 }
