@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 13:54:40 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/29 13:56:00 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,4 @@ int	ft_str_is_printable(char *str)
 		str = str + 1;
 	}
 	return (1);
-}
-
-void	main(void)
-{
-	char	*str;
-	int	b;
-	char	c;
-
-	str = "\n";
-	b = ft_str_is_printable(str);
-	c = b + '0';
-	write(1, &c, 1);
 }

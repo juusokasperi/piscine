@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 14:44:27 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/29 14:45:00 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,4 @@ char	*ft_strlowcase(char *str)
 		i++;
 	}
 	return (str);
-}
-
-void	main(void)
-{
-	char	str[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char	*b;
-
-	b = ft_strlowcase(str);
-	write(1, str, 26);
 }

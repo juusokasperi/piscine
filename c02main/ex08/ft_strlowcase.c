@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 18:30:48 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/29 14:44:27 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strcapitalize(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
-	int	p;
 
-	if (str[0] >= 'a' && str[0] <= 'z')
-		str[0] = str[0] - 32;
-	i = 1;
+	i = 0;
 	while (str[i] != '\0')
 	{
-		p = i - 1;
-		if (((str[i] >= 'a' && str[i] < 'z')
-				|| (str[i] >= 'A' && str[i] <= 'Z'))
-			&& (str[p] < '0' || (str[p] > '9' && str[p] < 'A')
-				|| (str[p] > 'Z' && str[p] < 'a') || str[p] > 'z'))
-			str[i] = str[i] - 32;
-		else if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] = str [i] + 32;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] = str[i] + 32;
+		}
 		i++;
 	}
 	return (str);
+}
+
+void	main(void)
+{
+	char	str[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char	*b;
+
+	b = ft_strlowcase(str);
+	write(1, str, 26);
 }

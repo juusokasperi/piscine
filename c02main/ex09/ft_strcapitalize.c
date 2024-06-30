@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 18:30:48 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/29 18:30:01 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,17 @@ char	*ft_strcapitalize(char *str)
 		i++;
 	}
 	return (str);
+}
+
+void	main(void)
+{
+	char	str[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+	char	*b;
+	char	*c;
+	char	str1[] = "HELLO";
+
+	b = ft_strcapitalize(str);
+	c = ft_strcapitalize(str1);
+	write(1, b, 61);
+	write(1, c, 5);
 }

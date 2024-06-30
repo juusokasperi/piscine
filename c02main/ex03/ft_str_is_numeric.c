@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/28 20:53:39 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 19:02:23 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/29 13:36:50 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_numeric(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
+	while (*str != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		if (!(*str >= '0' && *str <= '9'))
+		{
+			return (0);
+		}
+		str = str + 1;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (1);
+}
+
+void	main(void)
+{
+	char	*str;
+	int	b;
+	char	c;
+
+	str = "0123456789";
+	b = ft_str_is_numeric(str);
+	c = b + '0';
+	write(1, &c, 1);
 }

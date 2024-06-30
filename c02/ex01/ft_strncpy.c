@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 21:31:00 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/28 22:12:55 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/06/28 23:16:34 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	int unsigned	i;
 
 	i = 0;
 	while (i < n)
@@ -30,22 +30,5 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 			}
 		}
 	}
-}
-
-int	main(void)
-{
-	char	src[10] = "Testingia";
-	char	dest[15] = "TestingiaTest";
-	int	n;
-	int	i;
-	char	c;
-
-	n = 14;
-	i = 0;
-	ft_strncpy(dest, src, n);
-	while (i <= n)
-	{
-		write(1, &dest[i], 1);
-		i++;
-	}
+	return (dest);
 }
