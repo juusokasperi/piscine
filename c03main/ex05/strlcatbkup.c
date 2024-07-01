@@ -6,12 +6,12 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 08:23:25 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/01 16:54:29 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 14:53:16 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <bsd/string.h>
+#include <string.h>
 
 void	print_str(char *str)
 {
@@ -30,29 +30,35 @@ void	print_char(char c)
 int		ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
-	unsigned int	j;
+	unsigned int 	j;
+	unsigned int	dest_l;
+	unsigned int	src_l;
 
-	i = 0;
+	while (dest[dest_l] != '\0')
+		dest_l++;
+	while (src[src_l] != '\0')
+		src_l++;
+	if (size <= dest_l)
+		return (src_l + size);
+	i = dest_l;
 	j = 0;
-
-	while (src[i] != '\0')
-		i++;
-	while (dest[j] != '\0')
+	while (i < (size - 1) && src[j] != '\0')
+	{
+		dest[i] = src[j];
 		j++;
-	if (size > i - 1)
-		return (j + size);
-
-	print_char(i + '0');
-	return (0);
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest_l + src_l);
 }
 
 int	main(void)
 {
 	char	src[] = "Hei";
-	char	dest[6] = "Worl";
+	char	dest[12] = "World";
 	int		a;
 
-//	a = strlcat(dest, src, 3);
+//	a = strlcat(dest, src, 7);
 	a = ft_strlcat(dest, src, 3);
 	if (a < 10)
 	{
