@@ -1,45 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 19:14:19 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/01 07:27:00 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/30 22:41:45 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/06/30 23:07:23 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strstr(char *str, char *to_find)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
+	int	j;
 
-	if (src[0] == '\0')
-		return (dest);
 	i = 0;
-	j = 0;
-	while (i < nb && src[i] != '\0')
+	if (to_find[0] == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		while (dest[j] != '\0')
+		j = 0;
+		while (str[i + j] == to_find[j])
+		{
+			if (to_find[j + 1] == '\0')
+			{
+				return (&str[i]);
+			}
 			j++;
-		dest[j] = src[i];
-		j++;
+		}
 		i++;
 	}
-	dest[j] = '\0';
-	return (dest);
-}
-
-int	main(void)
-{
-	char	src[] = "World";
-	char	dest[100] = "Hello";
-	char	*ptr;
-
-	ptr = ft_strncat(dest, src, 5);
-	printf("%s\n", ptr);
 	return (0);
 }

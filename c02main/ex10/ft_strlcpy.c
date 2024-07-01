@@ -6,12 +6,11 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:41:36 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 20:10:50 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 07:39:15 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <bsd/string.h>
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
@@ -27,8 +26,6 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 		}
 		dest[i] = '\0';
 	}
-	while (src[i] != '\0')
-		i++;
 	return (i);
 }
 
@@ -40,10 +37,10 @@ void	print_char(char c)
 int	main(void)
 {
 	char	src[] = "BABBAB";
-	char	dest[3];
+	char	dest[10];
 	unsigned int	a;
-	
-	a = ft_strlcpy(dest, src, 3);
+
+	a = ft_strlcpy(dest, src, 5);
 	print_char(a + '0');
 	return (0);
 }
