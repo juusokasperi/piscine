@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:08:54 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 18:41:22 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 14:21:39 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -16,26 +16,21 @@ void	print_char(char c)
 	write(1, &c, 1);
 }
 
-void	print_hex(char c)
-{	
+void	print_hex(unsigned char c)
+{
+	char	*hex;
+
+	hex = "0123456789abcdef";
 	print_char('\\');
 	if (c < 16)
+	{
 		print_char('0');
-	if (c > 16)
-		print_char('1');
-	if (c <= 9 || (c >= 16 && c <= 25))
-	{
-		if (c <= 9)
-			print_char(c + '0');
-		if (c >= 16)
-			print_char(c - 16);
+		print_char(hex[c]);
 	}
-	if ((c >= 10 && c <= 15) || c >= 26)
+	if (c > 16)
 	{
-		if (c <= 15)
-			print_char(c + 87);
-		if (c >= 26)
-			print_char(c + 71);
+		print_char('1');
+		print_char(hex[c - 16]);
 	}
 }
 

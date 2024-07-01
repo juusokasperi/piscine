@@ -6,9 +6,12 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:41:36 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/01 07:39:15 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 13:39:00 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Strlcpy will always try to copy size - 1 (so null is included in the size
+// sent to the function as a paremeter.
 
 #include <unistd.h>
 

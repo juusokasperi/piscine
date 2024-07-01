@@ -6,9 +6,13 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 21:31:00 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 19:50:30 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 12:11:18 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Copies the string src to string dest. If no NULL terminator within the
+// first n bytes of src, dest will not be null-terminated. If n is longer than
+// src, additional null terminators will be written in the string dest.
 
 #include <unistd.h>
 
@@ -30,22 +34,22 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 			}
 		}
 	}
+	return(dest);
 }
 
 int	main(void)
 {
 	char	src[10] = "Testingia";
-	char	dest[20] = "";
+	char	dest[20];
 	int	n;
-	int	i;
-	char	c;
+	char	*c;
+
 
 	n = 15;
-	i = 0;
-	ft_strncpy(dest, src, n);
-	while (i <= n)
+	c = ft_strncpy(dest, src, n);
+	while (*c != '\0')
 	{
-		write(1, &dest[i], 1);
-		i++;
+		write(1, c, 1);
+		c++;
 	}
 }

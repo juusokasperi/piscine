@@ -6,11 +6,9 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 19:53:45 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 14:23:49 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int	ft_str_is_numeric(char *str)
 {

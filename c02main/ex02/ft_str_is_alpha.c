@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 19:52:35 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 12:15:32 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	main(void)
 	int	b;
 	char	c;
 
-	str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	str = "";
 	b = ft_str_is_alpha(str);
 	c = b + '0';
 	write(1, &c, 1);

@@ -6,11 +6,9 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:53:39 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 19:02:23 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 14:22:55 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 char	*ft_strcpy(char *dest, char *src)
 {

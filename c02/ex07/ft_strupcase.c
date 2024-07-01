@@ -6,11 +6,9 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 19:55:26 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 14:24:33 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 char	*ft_strupcase(char *str)
 {

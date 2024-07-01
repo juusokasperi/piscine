@@ -6,11 +6,9 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:41:36 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/01 07:36:06 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/01 14:25:03 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
