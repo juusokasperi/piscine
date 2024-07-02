@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 16:27:38 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 19:33:36 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:53:32 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_str_is_printable(char *str)
-{
-	while (*str != '\0')
-	{
-		if (!(*str >= ' '))
-			return (0);
-		str = str + 1;
-	}
-	return (1);
-}
+char	*ft_strupcase(char *str);
 
-void	main(void)
+int	main(void)
 {
-	char	*str;
-	int	b;
-	char	c;
+	char	str[] = "1234ABCD !!00!! abcdefghijklmnopqrstuvwxyz";
 
-	str = "\n";
-	b = ft_str_is_printable(str);
-	c = b + '0';
-	write(1, &c, 1);
+	ft_strupcase(str);
+	write(1, str, 42);
+	return (0);
 }

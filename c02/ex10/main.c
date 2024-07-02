@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 18:41:36 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 16:32:11 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 19:36:58 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:56:57 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,11 @@
 
 #include <unistd.h>
 
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+
 void	print_char(char c)
 {
 	write(1, &c, 1);
-}
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-	unsigned int	j;
-
-	j = 0;
-	i = 0;
-	while (src[j] != '\0')
-		j++;
-	if (size > 0)
-	{
-		while (i < size - 1)
-		{
-			if (i < j && src[i] != '\0')
-				dest[i] = src[i];
-			else
-				dest[i] = '\0';
-			i++;
-		}
-		dest[i] = '\0';
-	}
-	return (j);
 }
 
 int	main(void)

@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/01 14:24:24 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/02 19:41:44 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	ft_str_is_printable(char *str)
 {
 	while (*str != '\0')
 	{
-		if (!(*str >= ' ' && *str <= '~'))
+		if (!(*str >= ' '))
 			return (0);
 		str = str + 1;
 	}

@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 16:25:25 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/30 17:09:30 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:57:34 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putstr_non_printable(char *str);
 
-int	ft_str_is_lowercase(char *str)
-{
-	while (*str != '\0')
-	{
-		if (!(*str >= 'a' && *str <= 'z'))
-			return (0);
-		str = str + 1;
-	}
-	return (1);
-}
-
-void	main(void)
+int	main(void)
 {
 	char	*str;
-	int	b;
-	char	c;
 
-	str = "abcdA";
-	b = ft_str_is_lowercase(str);
-	c = b + '0';
-	write(1, &c, 1);
+	str = "Coucou\ntu\tvas bien ?";
+	ft_putstr_non_printable(str);
+	return (0);
 }

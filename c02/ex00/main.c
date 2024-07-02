@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 16:23:31 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 19:28:25 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:29:03 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_str_is_alpha(char *str)
+char	*ft_strcpy(char *dest, char *src);
+
+int	main(void)
 {
-	while (*str != '\0')
+	char	src[6] = "Testi";
+	char	dest[6];
+	char	*ptr;
+
+	ptr = ft_strcpy(dest, src);
+	while (*ptr != '\0')
 	{
-		if(!((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z')))
-			return (0);
-		str = str + 1;
+		write(1, ptr, 1);
+		ptr = ptr + 1;
 	}
-	return (1);
-}
-
-void	main(void)
-{
-	char	*str;
-	int	b;
-	char	c;
-
-	str = "abcdefgABC";
-	b = ft_str_is_alpha(str);
-	c = b + '0';
-	write(1, &c, 1);
+	return (0);
 }

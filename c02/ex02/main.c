@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 16:26:16 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 19:30:24 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:30:48 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_str_is_uppercase(char *str)
-{
-	while (*str != '\0')
-	{
-		if (!(*str >= 'A' && *str <= 'Z'))
-			return (0);
-		str = str + 1;
-	}
-	return (1);
-}
+int	ft_str_is_alpha(char *str);
 
 void	main(void)
 {
@@ -29,8 +20,8 @@ void	main(void)
 	int	b;
 	char	c;
 
-	str = "ABCDEF";
-	b = ft_str_is_uppercase(str);
+	str = "abcdefgABC";
+	b = ft_str_is_alpha(str);
 	c = b + '0';
 	write(1, &c, 1);
 }

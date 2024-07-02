@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 16:28:22 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 19:32:17 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:50:16 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strupcase(char *str)
-{
-	int	i;
+int	ft_str_is_uppercase(char *str);
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] = str[i] - 32;
-		i++;
-	}
-	return (str);
+int	main(void)
+{
+	char	*str;
+	int	b;
+	char	c;
+
+	str = "ABCDEF";
+	b = ft_str_is_uppercase(str);
+	c = b + '0';
+	write(1, &c, 1);
+	return (0);
 }
 
-void	main(void)
-{
-	char	str[] = "1234ABCD !!00!! abcdefghijklmnopqrstuvwxyz";
-	char	*b;
-
-	b = ft_strupcase(str);
-	write(1, str, 42);
-}

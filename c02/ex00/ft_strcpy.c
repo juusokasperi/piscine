@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 20:53:39 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/01 14:22:55 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/02 19:28:54 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ char	*ft_strcpy(char *dest, char *src)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }

@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 17:08:54 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 16:34:10 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 19:31:49 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:49:39 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	print_hex(unsigned char c)
-{
-	char	*hex;
+int	ft_str_is_lowercase(char *str);
 
-	hex = "0123456789abcdef";
-	write(1, "\\", 1);
-	if (c < 16)
-	{
-		write(1, "0", 1);
-		write(1, &hex[c], 1);
-	}
-	if (c >= 16)
-	{
-		write(1, "1", 1);
-		write(1, &hex[c - 16], 1);
-	}
-}
-
-void	ft_putstr_non_printable(char *str)
+int	main(void)
 {
-	while (*str != '\0')
-	{
-		if (*str > 31)
-			write(1, str, 1);
-		else
-			print_hex(*str);
-		str++;
-	}
+	char	*str;
+	int	b;
+	char	c;
+
+	str = "abcdA";
+	b = ft_str_is_lowercase(str);
+	c = b + '0';
+	write(1, &c, 1);
+	return (0);
 }

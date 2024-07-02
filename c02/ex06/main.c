@@ -5,17 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 17:09:30 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 16:36:30 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 19:33:02 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:51:01 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr_non_printable(char *str);
+#include <unistd.h>
 
-void	main(void)
+int	ft_str_is_printable(char *str);
+
+int	main(void)
 {
 	char	*str;
+	int	b;
+	char	c;
 
-	str = "Coucou\ntu\tvas bien ?";
-	ft_putstr_non_printable(str);
+	str = "\n";
+	b = ft_str_is_printable(str);
+	c = b + '0';
+	write(1, &c, 1);
+	return (0);
 }

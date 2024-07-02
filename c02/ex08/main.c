@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 20:01:26 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 19:34:19 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:55:25 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strlowcase(char *str)
-{
-	int	i;
+char	*ft_strlowcase(char *str);
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] = str[i] + 32;
-		i++;
-	}
-	return (str);
-}
-
-void	main(void)
+int	main(void)
 {
 	char	str[] = "abc!!!123!!!ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char	*b;
 
-	b = ft_strlowcase(str);
+	ft_strlowcase(str);
 	write(1, str, 38);
+	return (0);
 }

@@ -1,48 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 16:30:57 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 19:34:46 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 19:56:07 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strcapitalize(char *str)
-{
-	int	i;
-	int	not_alpha;
-
-	i = 0;
-	not_alpha = 1;
-	while (str[i] != '\0')
-	{
-		if (not_alpha && (str[i] >= 'a' && str[i] <= 'z'))
-			str[i] = str[i] - 32;
-		if (!not_alpha && (str[i] >= 'A' && str[i] <= 'Z'))
-			str[i] = str[i] + 32;
-		if (str[i] < '0' || (str[i] > '9' && str[i] < 'A')
-			|| (str[i] > 'Z' && str[i] < 'a'))
-			not_alpha = 1;
-		else
-			not_alpha = 0;
-		i++;
-	}
-	return (str);
-}
+char	*ft_strcapitalize(char *str);
 
 int	main(void)
 {
 	char	str[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-	char	*ptr;
 	int		i;
 
 	i = 0;
-	ptr = ft_strcapitalize(str);
+	ft_strcapitalize(str);
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
