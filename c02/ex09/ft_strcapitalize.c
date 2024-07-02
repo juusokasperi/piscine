@@ -6,32 +6,28 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/01 14:24:51 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/02 13:10:23 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcapitalize(char *str)
 {
 	int	i;
-	int	p;
+	int	not_alpha;
 
-	if (str[0] == '\0')
-		return (str);
-	if (str[0] >= 'a' && str[0] <= 'z')
-		str[0] = str[0] - 32;
-	i = 1;
+	i = 0;
+	not_alpha = 1;
 	while (str[i] != '\0')
 	{
-		p = i - 1;
-		if ((str[i] >= 'a' && str[i] <= 'z')
-			&& (str[p] < '0' || (str[p] > '9' && str[p] < 'A')
-				|| (str[p] > 'Z' && str[p] < 'a')))
+		if (not_alpha && (str[i] >= 'a' && str[i] <= 'z'))
 			str[i] = str[i] - 32;
-		if ((str[i] >= 'A' && str[i] <= 'Z')
-			&& ((str[p] >= '0' && str[p] <= '9')
-				|| (str[p] >= 'a' && str[p] <= 'z')
-				|| (str[p] >= 'A' && str[p] <= 'Z')))
+		if (!not_alpha && (str[i] >= 'A' && str[i] <= 'Z'))
 			str[i] = str[i] + 32;
+		if (str[i] < '0' || (str[i] > '9' && str[i] < 'A')
+			|| (str[i] > 'Z' && str[i] < 'a'))
+			not_alpha = 1;
+		else
+			not_alpha = 0;
 		i++;
 	}
 	return (str);

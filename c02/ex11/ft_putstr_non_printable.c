@@ -6,9 +6,10 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 17:08:54 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/01 14:21:39 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/02 14:50:11 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
 void	print_char(char c)
@@ -27,7 +28,7 @@ void	print_hex(unsigned char c)
 		print_char('0');
 		print_char(hex[c]);
 	}
-	if (c > 16)
+	if (c >= 16)
 	{
 		print_char('1');
 		print_char(hex[c - 16]);
