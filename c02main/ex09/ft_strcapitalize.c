@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 13:02:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 13:09:39 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/02 16:30:57 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strcapitalize(char *str)
 
 int	main(void)
 {
-	char	str[] = "hELLO";
+	char	str[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
 	char	*ptr;
 	int		i;
 

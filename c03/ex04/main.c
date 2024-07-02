@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 19:14:19 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 19:33:51 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 17:48:11 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 18:39:57 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Strstr finds the first occurrence of str2 in str1 an
+
+#include <unistd.h>
 #include <stdio.h>
 
-char	*ft_strcat(char *dest, char *src)
+void	print_str(char *ptr)
 {
-	int	i;
-	int	j;
-	
-	if (src[0] == '\0')
-		return (dest);
-	i = 0;
-	j = 0;
-	while (src[i] != '\0')
+	while (*ptr != '\0')
 	{
-		while (dest[j] != '\0')
-			j++;
-		dest[j] = src[i];
-		j++;
-		i++;
+		write(1, ptr, 1);
+		ptr++;
 	}
-	dest[j] = '\0';
-	return(dest);
 }
+
+char	*ft_strstr(char *str, char *to_find);
 
 int	main(void)
 {
-	char src[] = "";
-	char dest[100] = "Destination.";
+	char	*str1;
+	char	*str2;
 	char	*ptr;
 
-	ptr = ft_strcat(dest, src);
-	printf("%s\n", ptr);
+	str1 = "Test Sentence Starts Here.";
+	str2 = "art";
+	ptr = ft_strstr(str1, str2);
+	printf("%s \n", ptr);
 	return (0);
 }

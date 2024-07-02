@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 13:31:18 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 13:45:05 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 18:27:06 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 18:37:55 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// Function appends src string to dest string, overwriting the terminating
+// null byte at the end of dest and then adds a terminating null at the end.
+// Dest must have enough space, otherwise behavior is unpredictable.
+
 #include <stdio.h>
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (n < 1)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0')
-	{
-		if (i == n - 1)
-			return (s1[i] - s2[i]);
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (s1[i] - s2[i]);
-}
+char	*ft_strcat(char *dest, char *src);
 
 int	main(void)
 {
-	char	str1[] = "testi";
-	char	str2[] = "testy";
-	int		i;
+	char	src[] = " Testing copying.";
+	char	dest[60] = "Test.";
+	char	*ptr;
 
-	i = ft_strncmp(str1, str2, 20);
-	printf("%d\n", i);
+	ptr = ft_strcat(dest, src);
+	printf("%s\n", ptr);
 	return (0);
 }

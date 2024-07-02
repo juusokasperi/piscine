@@ -1,45 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 19:14:19 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/01 07:27:00 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 18:27:53 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 18:28:09 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Strncat similar to strcat, except that it:
+// will use at most n bytes from src, and
+// src doesn't need to be null-terminated, if src > n
+// It will write n + 1, so it adds the null at the end.
+
 #include <stdio.h>
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	unsigned int	i;
-	unsigned int	j;
-
-	if (src[0] == '\0')
-		return (dest);
-	i = 0;
-	j = 0;
-	while (i < nb && src[i] != '\0')
-	{
-		while (dest[j] != '\0')
-			j++;
-		dest[j] = src[i];
-		j++;
-		i++;
-	}
-	dest[j] = '\0';
-	return (dest);
-}
+char	*ft_strncat(char *dest, char *src, unsigned int nb);
 
 int	main(void)
 {
 	char	src[] = "World";
-	char	dest[100] = "Hello";
+	char	dest[100] = "Hello ";
 	char	*ptr;
 
-	ptr = ft_strncat(dest, src, 5);
+	ptr = ft_strncat(dest, src, 4);
 	printf("%s\n", ptr);
 	return (0);
 }
