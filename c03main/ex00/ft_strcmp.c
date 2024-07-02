@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 12:56:07 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/30 13:26:18 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/02 16:05:24 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_strcmp(char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (s1[i] != '\0')
 	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
@@ -29,8 +29,8 @@ int	ft_strcmp(char *s1, char *s2)
 
 int	main(void)
 {
-	char	str1[] = "testi";
-	char	str2[] = "";
+	char	str1[] = "a";
+	char	str2[] = "\n";
 	int		i;
 
 	i = ft_strcmp(str1, str2);
