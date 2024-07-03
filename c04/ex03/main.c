@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 20:54:13 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/03 18:21:30 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/03 11:58:11 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/03 13:42:18 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	print_char(char c)
-{
-	write(1, &c, 1);
-}
+int	ft_atoi(char *str);
 
-void	ft_putnbr(int nb)
+int	main(char argc, char **argv)
 {
-	if (nb < 0)
+	int	i;
+
+	if (argc != 2)
 	{
-		print_char('-');
-		nb = -nb;
+		printf("ERROR: Invalid parameters.");
+		return (1);
 	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		nb %= 10;
-	}
-	if (nb < 10)
-	{
-		print_char(nb + '0');
-	}
+	i = ft_atoi(argv[1]);
+	printf("Value of i is: %i \n", i);
 }

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 20:54:13 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/03 18:21:30 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/03 14:03:54 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/03 18:16:55 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-void	print_char(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putnbr_base(int nbr, char *base);
 
-void	ft_putnbr(int nb)
+int	main(int argc, char **argv)
 {
-	if (nb < 0)
+	int	nbr;
+
+	if (argc != 3)
 	{
-		print_char('-');
-		nb = -nb;
+		printf("ERROR: Invalid parameters.");
+		return (1);
 	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		nb %= 10;
-	}
-	if (nb < 10)
-	{
-		print_char(nb + '0');
-	}
+	printf("First argument is: %s\nSecond argument is: %s\n", argv[1], argv[2]);
+	printf("Result of ft_putnbr_base below:\n");
+	nbr = atoi(argv[1]);
+	ft_putnbr_base(nbr, argv[2]);
 }
