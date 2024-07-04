@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:57:17 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/04 06:10:35 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/04 11:59:09 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ int	ft_atoi(char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] >= '0' && str[i] <= '9')
-		{
-			atoi = (atoi * 10) + str[i] - '0';
-		}
+			atoi = atoi * 10 + (str[i] - '0');
 		if (str[i] < '0' || str[i] > '9')
 			break ;
 		i++;
