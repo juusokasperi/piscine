@@ -6,12 +6,11 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:39:59 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/04 16:48:34 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/04 16:55:05 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_putstr(char *str)
 {
