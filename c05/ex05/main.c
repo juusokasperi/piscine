@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 08:05:29 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/04 08:46:14 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/04 15:14:04 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 		printf("ERROR: Invalid parameters.\n");
 		return (1);
 	}
-
 	nbr = ft_sqrt(atoi(argv[1]));
 	printf("Square root of %s is: %i\n", argv[1], nbr);
 	return (0);

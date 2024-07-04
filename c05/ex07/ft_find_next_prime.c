@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 08:05:34 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/04 13:33:13 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/04 13:59:28 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/04 15:20:46 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+int	ft_find_next_prime(int nb)
 {
 	int	i;
 
-	i = 1;
-	if (nb <= 0)
-		return (0);
-	while (nb / i > i)
-		i++;
-	if (nb % i == 0)
-		return (i);
-	else
-		return (0);
+	i = nb - 1;
+	if (nb <= 2)
+		return (2);
+	while (i > 1)
+	{
+		if (nb % i == 0)
+		{
+			nb = ft_find_next_prime(nb + 1);
+			return (nb);
+		}
+		i--;
+	}
+	return (nb);
 }

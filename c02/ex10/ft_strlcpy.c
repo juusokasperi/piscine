@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:41:36 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/02 19:39:14 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/04 15:43:21 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	{
 		while (i < size - 1)
 		{
-			if (i < j && src[i] != '\0')
+			if (src[i] != '\0')
 				dest[i] = src[i];
 			else
 				dest[i] = '\0';
