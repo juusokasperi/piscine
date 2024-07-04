@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:03:57 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/03 18:24:24 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/03 22:48:37 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,13 @@ void	ft_putnbr_base(int nbr, char *base)
 		return ;
 	while (base[base_size] != '\0')
 		base_size++;
+	if (nbr == -2147483648)
+    {
+        write(1, "-", 1);
+        print_nbr_base(-(nbr / base_size), base_size, base);
+		write(1, &base[-(nbr % base_size)], 1);
+		return;
+    }
 	if (nbr < 0)
 	{
 		write(1, "-", 1);

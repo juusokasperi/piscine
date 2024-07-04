@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:54:13 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/03 18:21:30 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/03 22:29:12 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	print_char(char c)
 
 void	ft_putnbr(int nb)
 {
+	if (nb == -2147483648)
+	{
+		print_char('-');
+		print_char('2');
+		ft_putnbr(147483648);
+		return ;
+	}
 	if (nb < 0)
 	{
 		print_char('-');

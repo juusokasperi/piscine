@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:57:17 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/03 13:52:08 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/04 06:09:35 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,40 @@ int	isspace(int arg)
 		return (0);
 }
 
+int	issign(int arg, int *sign)
+{
+	if (arg == '-' || arg == '+')
+	{
+		if ((*sign == -1 && arg == '-')
+			|| (*sign == 1 && arg == '-'))
+			*sign *= -1;
+		return (1);
+	}
+	return (0);
+}
+
 int	ft_atoi(char *str)
 {
 	int	i;
-	int s;
-	int atoi;
+	int	s;
+	int	atoi;
 
 	s = 1;
 	i = 0;
 	atoi = 0;
 	while (isspace(str[i]) && str[i] != '\0')
-	{
 		i++;
-	}
-	while(str[i] != '\0')
+	while (issign(str[i], &s) && str[i] != '\0')
+		i++;
+	while (str[i] != '\0')
 	{
-		if ((s == -1 && str[i] == '-')
-			|| (s == 1 && str[i] == '-'))
-		{
-			s *= -1;
-		}
 		if (str[i] >= '0' && str[i] <= '9')
 		{
 			atoi = (atoi * 10) + str[i] - '0';
 		}
-		if (str[i] != '+' && str[i] != '-' && (str[i] < '0' || str[i] > '9'))
-		{
-			break;
-		}
+		if (str[i] < '0' || str[i] > '9')
+			break ;
 		i++;
 	}
-	return(s * atoi);
+	return (s * atoi);
 }
