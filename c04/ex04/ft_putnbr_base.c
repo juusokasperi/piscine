@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:03:57 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/03 22:48:37 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/04 06:28:55 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	check_base(char *base)
 			if (base[i] == base[j])
 				return (0);
 		}
-		if (base[i] < 32 || base[i] == '+' || base[i] == '-'
-			|| base[i] == '!')
+		if (base[i] <= 32 || base[i] == '+' || base[i] == '-'
+			|| base[i] > 126)
 			return (0);
 		i++;
 	}
@@ -40,12 +40,8 @@ int	check_base(char *base)
 void	print_nbr_base(int nbr, int base_size, char *base)
 {
 	if (nbr >= base_size)
-	{
 		print_nbr_base(nbr / base_size, base_size, base);
-		print_nbr_base(nbr % base_size, base_size, base);
-	}
-	if (nbr < base_size)
-		write(1, &base[nbr], 1);
+	write(1, &base[nbr % base_size], 1);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
@@ -58,12 +54,12 @@ void	ft_putnbr_base(int nbr, char *base)
 	while (base[base_size] != '\0')
 		base_size++;
 	if (nbr == -2147483648)
-    {
-        write(1, "-", 1);
-        print_nbr_base(-(nbr / base_size), base_size, base);
+	{
+		write(1, "-", 1);
+		print_nbr_base(-(nbr / base_size), base_size, base);
 		write(1, &base[-(nbr % base_size)], 1);
-		return;
-    }
+		return ;
+	}
 	if (nbr < 0)
 	{
 		write(1, "-", 1);
