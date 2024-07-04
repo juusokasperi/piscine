@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 20:16:12 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/04 08:04:33 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/04 08:05:29 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/04 08:46:14 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-index = 2;
+#include <stdio.h>
+#include <stdlib.h>
 
-int	ft_fibonacci(int index)
+int	ft_sqrt(int nb);
+
+int	main(int argc, char **argv)
 {
-	if (index < 0)
-		return (-1);
-	if (index < 2)
-		return (index);
-	else
-		return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
+	int	nbr;
+
+	if (argc != 2)
+	{
+		printf("ERROR: Invalid parameters.\n");
+		return (1);
+	}
+
+	nbr = ft_sqrt(atoi(argv[1]));
+	printf("Square root of %s is: %i\n", argv[1], nbr);
+	return (0);
 }
