@@ -48,3 +48,12 @@ is_valid tarkistaa onko numero jo samalla rivilla tai sarakkeella.
 print_grid printtaa kun valmis
 is_valid_state joka tsekkaa koko taulukon kun valmis, kayttaen apuna funktioita
 count_visible_column ja count_visible_row
+
+            0        2      4      6      8
+./rush-01 "col1up col2up col3up col4up col1down
+   10       12      14        16      18
+col2down col3down col4down row1left row2left
+   20       22       24       26        28
+row3left row4left row1right row2right row3right
+   30
+row4right"
