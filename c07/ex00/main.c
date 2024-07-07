@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 19:05:53 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/05 19:53:24 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/05 05:53:25 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/05 19:29:21 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+#include <stdio.h>
+#include <stdlib.h>
+
+char	*ft_strdup(char *src);
+
+int	main(int argc, char **argv)
 {
-	if (nb < 0)
-		return (0);
-	if (nb == 0 || nb == 1)
+	char *dup;
+	if (argc != 2)
+	{
+		printf("ERROR - Usage \"%s <str_to_duplicate>\"\n", argv[0]);
 		return (1);
-	return (nb * ft_recursive_factorial(nb - 1));
+	}
+	dup = ft_strdup(argv[1]);
+	printf("Strdup is: %s\n", dup);
+	free (dup);
+	printf("After running free() strdup is: %s", dup);
+
+	return (0);
 }

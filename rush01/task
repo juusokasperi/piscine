@@ -1,0 +1,50 @@
+Make a program that solves the skyscraper puzzle
+
+F.ex.
+    4 3 2 1
+    - - - -
+4 | x x x x | 1
+3 | x x x x | 2
+2 | x x x x | 2
+1 | x x x x | 2
+    - - - -
+    1 2 2 2
+
+Vaiheet:
+1) Lisaa kaikki varmat numerot.
+Jos vihjeena numero 1, eka numero taytyy olla 4.
+Jos vihjeena numero 4, koko rivi taytyy olla 1234.
+
+Jos vihje on 2, eka luku ei voi olla 4.
+Jos vihje on 3, eka ja toka luku ei voi olla 4.
+
+2) Jos vastakkaiset luvut on 3 ja 2, luku
+4 tulee 3:sta katsoen kolmannelle paikalle.
+Tälloin luku 3 taytyy olla 3:st katsoen
+toiselle paikalle ja eka paikka taytyy olla 1 tai 2.
+Jos ekalla paikalla on jo luku, taytetaan viimeinen
+tyhja paikka luvulla 1-4 jota ei viela ole kaytetty
+tai toisin pain.
+
+3) Jos vihje on 2 ja 4 on kolmospaikalla, eka
+luku ei voi olla 1. Jos vihje on 2 ja 4 on vipalla
+paikalla, ekan luvun taytyy olla 3.
+
+
+    4 3 2 1
+    - - - -
+4 | 1 2 3 4 | 1
+3 | 2 3 4 1 | 2
+2 | 3 4 1 2 | 2
+1 | 4 1 2 3 | 2
+    - - - -
+    1 2 2 2
+
+Eli:
+
+Funktiot;
+solve paafunktio
+is_valid tarkistaa onko numero jo samalla rivilla tai sarakkeella.
+print_grid printtaa kun valmis
+is_valid_state joka tsekkaa koko taulukon kun valmis, kayttaen apuna funktioita
+count_visible_column ja count_visible_row

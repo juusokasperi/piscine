@@ -1,20 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 19:05:53 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/05 19:53:24 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/05 05:39:15 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/05 19:30:31 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+#include <stdlib.h>
+
+char	*ft_strcpy(char *dest, char *src)
 {
-	if (nb < 0)
-		return (0);
-	if (nb == 0 || nb == 1)
-		return (1);
-	return (nb * ft_recursive_factorial(nb - 1));
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*dest;
+
+	dest = malloc((ft_strlen(src) + 1) * sizeof(char));
+	ft_strcpy(dest, src);
+	return (dest);
 }
