@@ -6,13 +6,21 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:50:04 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/05 05:37:57 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/07 20:29:33 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Arrange string array in alphabetical order (strncmp). Discard argv[0].
+#include <unistd.h>
 
-#include <stdio.h>
+void	ft_putstr(char *str)
+{
+	while (*str != '\0')
+	{
+		write(1, str, 1);
+		str++;
+	}
+	write(1, "\n", 1);
+}
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -57,7 +65,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < argc)
 	{
-		printf("%s\n", argv[i]);
+		ft_putstr(argv[i]);
 		i++;
 	}
 	return (0);

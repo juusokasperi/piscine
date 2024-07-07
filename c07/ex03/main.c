@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 19:41:20 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/07 22:50:55 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/07 20:43:26 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/07 20:48:29 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_power(int nb, int power)
-{
-	int	i;
-	int	temp;
+char	*ft_strjoin(int size, char **strs, char *sep);
 
-	i = 1;
-	temp = nb;
-	if (power < 0)
-		return (0);
-	if ((power == 0 && nb == 0) || power == 0)
-		return (1);
-	while (i < power)
-	{
-		temp = temp * nb;
-		i++;
-	}
-	return (temp);
+int	main(void)
+{
+	char *str1 = "String 1 X";
+	char *str2 = "String 2 X";
+	char *str3 = "String 3 X";
+	char *strs = { str1, str2, str3 };
+
+	printf("strs[0] is %s", strs[0]);
 }
