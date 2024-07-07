@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main02.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 09:33:09 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/07 11:22:26 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/07 14:55:04 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#define N 4
 
-int	initialize(int puzzle[N][N], int clues[4][N], int argc, char **argv);
+int	initialize(int puzzle[4][4], int clues[4][4], int argc, char **argv);
 
-int	solve(int puzzle[N][N], int clues[4][N], int row, int col);
+int	solve(int puzzle[4][4], int clues[4][4], int row, int col);
 
-void	print_grid(int puzzle[N][N])
+void	print_grid(int puzzle[4][4])
 {
 	int		i;
 	int		j;
 	char	c;
 
 	i = 0;
-	while (i < N)
+	while (i < 4)
 	{
 		j = 0;
-		while (j < N)
+		while (j < 4)
 		{
 			c = puzzle[i][j] + '0';
 			write(1, &c, 1);
@@ -42,8 +41,8 @@ void	print_grid(int puzzle[N][N])
 
 int	main(int argc, char **argv)
 {
-	int	puzzle[N][N];
-	int	clues[4][N];
+	int	puzzle[4][4];
+	int	clues[4][4];
 
 	if (!initialize(puzzle, clues, argc, argv))
 	{
@@ -58,3 +57,5 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+
+puzzle = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } }

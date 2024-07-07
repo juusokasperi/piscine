@@ -6,11 +6,9 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 10:12:56 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/07 11:22:25 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/07 15:02:13 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#define N 4
 
 int	ft_atoi(char *str)
 {
@@ -32,25 +30,25 @@ int	ft_atoi(char *str)
 	return (s * atoi);
 }
 
-void	initialize_puzzle(int puzzle[N][N])
+void	initialize_puzzle(int puzzle[4][4])
 {
-	int	i;
-	int	j;
+	int	row;
+	int	col;
 
-	i = 0;
-	while (i < N)
+	row = 0;
+	while (row < 4)
 	{
-		j = 0;
-		while (j < N)
+		col = 0;
+		while (col < 4)
 		{
-			puzzle[i][j] = 0;
-			j++;
+			puzzle[row][col] = 0;
+			col++;
 		}
-		i++;
+		row++;
 	}
 }
 
-int	initialize_clues(int clues[4][N], int argc, char **argv)
+int	initialize_clues(int clues[4][4], int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -61,13 +59,13 @@ int	initialize_clues(int clues[4][N], int argc, char **argv)
 	if (argc != 17)
 		return (0);
 	i = 1;
-	while (i <= N)
+	while (i <= 4)
 	{
 		j = 0;
-		while (j < N)
+		while (j < 4)
 		{
 			clue = ft_atoi(argv[argv_iterator]);
-			if (clue < 1 || clue > N)
+			if (clue < 1 || clue > 4)
 				return (0);
 			clues[i - 1][j] = clue;
 			j++;
@@ -78,7 +76,7 @@ int	initialize_clues(int clues[4][N], int argc, char **argv)
 	return (1);
 }
 
-int	initialize(int puzzle[N][N], int clues[4][N], int argc, char **argv)
+int	initialize(int puzzle[4][4], int clues[4][4], int argc, char **argv)
 {
 	initialize_puzzle(puzzle);
 	if (initialize_clues(clues, argc, argv))
