@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 10:49:47 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/07 19:19:24 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/08 17:30:25 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ char	count_col(char puzzle[4][4], int col, int reverse)
 	}
 	return (count);
 }
+
+clues = "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2"
 
 int	check_puzzle(char puzzle[4][4], char *clues)
 {

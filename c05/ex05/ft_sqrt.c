@@ -6,21 +6,22 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 08:05:34 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/07 22:56:46 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/08 16:01:45 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
-	int	i;
+	long	i;
 
 	i = 1;
 	if (nb <= 0)
 		return (0);
-	while (nb / i > i)
+	while (i <= nb)
+	{
+		if (i * i == nb)
+			return (i);
 		i++;
-	if (nb % i == 0)
-		return (i);
-	else
-		return (0);
+	}
+	return (0);
 }
