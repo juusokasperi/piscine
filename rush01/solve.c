@@ -76,8 +76,6 @@ char	count_col(char puzzle[4][4], int col, int reverse)
 	return (count);
 }
 
-clues = "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2"
-
 int	check_puzzle(char puzzle[4][4], char *clues)
 {
 	int	i;
