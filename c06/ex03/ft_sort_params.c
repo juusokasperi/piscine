@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:50:04 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/07 20:29:33 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/08 14:40:56 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,23 @@ void	sort_array(int size, char **str)
 	}
 }
 
-int	main(int argc, char **argv)
+void	ft_sort_params(int argc, char **argv)
 {
 	int	i;
 
-	sort_array(argc - 1, argv + 1);
 	i = 0;
+	argv++;
+	argc--;
+	sort_array(argc, argv);
 	while (i < argc)
 	{
 		ft_putstr(argv[i]);
 		i++;
 	}
+}
+
+int	main(int argc, char **argv)
+{
+	ft_sort_params(argc, argv);
 	return (0);
 }

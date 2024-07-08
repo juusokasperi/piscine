@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 16:39:59 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/07 20:29:47 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/08 12:44:28 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putstr(char *str)
 	write(1, "\n", 1);
 }
 
-int	main(int argc, char **argv)
+void	ft_rev_params(int argc, char **argv)
 {
 	argc--;
 	while (argc > 0)
@@ -30,5 +30,10 @@ int	main(int argc, char **argv)
 		ft_putstr(argv[argc]);
 		argc--;
 	}
+}
+
+int	main(int argc, char **argv)
+{
+	ft_rev_params(argc, argv);
 	return (0);
 }
