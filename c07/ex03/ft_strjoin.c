@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:43:35 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/08 00:37:04 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/09 18:30:33 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			total_length += ft_strlen(sep);
 		i++;
 	}
-	result = malloc((total_length + 1) * sizeof(char));
+	result = malloc((total_length + 1));
 	i = 0;
 	while (i < size)
 	{

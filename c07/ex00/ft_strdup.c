@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 05:39:15 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/05 19:30:31 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/09 18:31:44 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ char	*ft_strdup(char *src)
 {
 	char	*dest;
 
-	dest = malloc((ft_strlen(src) + 1) * sizeof(char));
+	dest = malloc((ft_strlen(src) + 1));
+	if (dest == 0)
+		return 0;
 	ft_strcpy(dest, src);
 	return (dest);
 }

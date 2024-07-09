@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 20:21:32 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/09 18:30:23 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/06/30 12:56:07 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/02 18:25:49 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_ultimate_range(int **range, int min, int max)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int				i;
-	unsigned long	str_len;
+	int	i;
 
-	if (min >= max)
-	{
-		*range = 0;
-		return (0);
-	}
-	str_len = (unsigned long)max - (unsigned long)min;
-	*range = malloc(str_len * 4);
-	if (*range == 0)
-		return (-1);
 	i = 0;
-	while (min < max)
+	while (s1[i] != '\0')
 	{
-		(*range)[i] = min++;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	return (i);
+	return (s1[i] - s2[i]);
 }

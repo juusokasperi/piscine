@@ -5,38 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 05:57:07 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/09 17:06:36 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/09 16:07:06 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/09 16:21:35 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include "ft.h"
 
-int	*ft_range(int min, int max);
-
-int	main(int argc, char **argv)
+int	main(void)
 {
-	int				*string;
-	unsigned long	range;
-	int				min;
-	int				max;
+	int	a;
+	int	b;
 
-	if (argc != 3)
-	{
-		printf("Error. Usage \"%s <min> <max>\"\n", argv[0]);
-		return (1);
-	}
-	min = atoi(argv[1]);
-	max = atoi(argv[2]);
-	string = ft_range(min, max);
-	range = (long)max - (long)min;
-	if (string)
-	{
-		printf("range is %lu\n", range);
-		printf("first element in string is %d\n", string[0]);
-		printf("last element in string is %d\n", string[range - 1]);
-	}
-	free(string);
+	a = 1;
+	b = 2;
+	printf("a is %i and b is %i\n", a, b);
+	ft_putchar('c');
+	ft_putchar('\n');
+	ft_swap(&a, &b);
+	printf("a is %i and b is %i\n", a, b);
+	ft_putstr("Testi String");
+	ft_putchar('\n');
+	a = ft_strlen("Testi String");
+	printf("Testi String is %i characters long\n", a);
+	printf("String Antti compared to string Artti is %i", ft_strcmp("Antti", "Artti"));
+	printf(" because n's decimal is 110 and r is 116, so 110 - 116 is %i\n", 110 - 116);
 	return (0);
 }
