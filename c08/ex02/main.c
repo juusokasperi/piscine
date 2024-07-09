@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 16:24:02 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/09 23:05:17 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/09 23:26:29 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/09 23:40:03 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#include "ft_abs.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
+int	main(int argc, char **argv)
+{
+	int	value;
 
-#endif
+	if (argc != 2)
+	{
+		printf("Error: Usage %s <value>\n", argv[0]);
+		return (1);
+	}
+	value = atoi(argv[1]);
+	printf("Absolute value of %i is %i\n", value, ABS(value));
+	return (0);
+}

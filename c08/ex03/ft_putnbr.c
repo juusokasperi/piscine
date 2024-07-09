@@ -1,22 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 16:24:02 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/09 23:05:17 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 20:54:13 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/04 12:51:15 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-# define FT_H
+#include <unistd.h>
 
-void	ft_putchar(char c);
-void	ft_swap(int *a, int *b);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-int		ft_strcmp(char *s1, char *s2);
+void	print_char(char c)
+{
+	write(1, &c, 1);
+}
 
-#endif
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+	{
+		print_char('-');
+		print_char('2');
+		ft_putnbr(147483648);
+		return ;
+	}
+	if (nb < 0)
+	{
+		print_char('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		nb %= 10;
+	}
+	if (nb < 10)
+	{
+		print_char(nb + '0');
+	}
+}
