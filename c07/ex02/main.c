@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 20:21:44 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/09 17:50:12 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/09 18:48:32 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 		printf("Error. Usage \"%s <min> <max>\"\n", argv[0]);
 		return (1);
 	}
-	length = ft_ultimate_range(range, atoi(argv[1]), atoi(argv[2]));
+	length = ft_ultimate_range(&range, atoi(argv[1]), atoi(argv[2]));
 	if (length)
 	{
 		printf("length is %d\n", length);

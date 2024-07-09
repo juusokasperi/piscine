@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 20:43:35 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/09 18:30:33 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/09 19:21:03 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	int		i;
 
 	i = 0;
-	if (size < 0)
-		return (result);
+	total_length = 0;
 	while (i < size)
 	{
 		total_length += ft_strlen(strs[i]);
@@ -60,6 +59,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		i++;
 	}
 	result = malloc((total_length + 1));
+	result[0] = '\0';
 	i = 0;
 	while (i < size)
 	{

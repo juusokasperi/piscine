@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 05:57:07 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/09 17:06:36 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/09 18:47:59 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(int argc, char **argv)
 		printf("first element in string is %d\n", string[0]);
 		printf("last element in string is %d\n", string[range - 1]);
 	}
+	else
+		printf("String is (null) \n");
 	free(string);
 	return (0);
 }
