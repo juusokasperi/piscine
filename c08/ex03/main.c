@@ -6,9 +6,11 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 23:45:31 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/10 00:56:50 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/10 10:23:43 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// point->x == (*point).x
 
 #include "ft_point.h"
 #include <unistd.h>

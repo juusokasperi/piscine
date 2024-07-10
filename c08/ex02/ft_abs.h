@@ -6,13 +6,13 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 23:23:47 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/09 23:44:31 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/10 10:18:02 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
 # define FT_ABS_H
 
-# define ABS(value) ((value) * ((value >= 0)) - (value) * ((value) < 0))
+# define ABS(value) ((value) * (value >= 0) - (value) * (value < 0))
 
 #endif
