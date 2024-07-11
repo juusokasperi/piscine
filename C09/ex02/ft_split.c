@@ -1,3 +1,47 @@
+char **ft_split(char *str, char *charset)
+{
+    int i, j, count = 0, length = ft_strlen(charset);
+    char **array;
+
+    // Count the number of substrings
+    for (i = 0; str[i]; i++) {
+        if (i == 0 || is_separator(str[i-1], charset, length)) {
+            if (!is_separator(str[i], charset, length)) {
+                count++;
+            }
+        }
+    }
+
+    // Allocate memory for the array of pointers
+    array = malloc((count + 1) * sizeof(char *));
+    if (!array) return NULL;
+
+    // Split the string
+    int start = 0, array_i = 0;
+    for (i = 0; str[i]; i++) {
+        if (is_separator(str[i], charset, length)) {
+            if (i > start) {
+                array[array_i] = malloc(i - start + 1);
+                if (!array[array_i]) return NULL;
+                ft_strlcpy(array[array_i], &str[start], i - start + 1);
+                array_i++;
+            }
+            start = i + 1;
+        }
+    }
+
+    // Handle the last substring if it doesn't end with a separator
+    if (str[i-1] && !is_separator(str[i-1], charset, length)) {
+        array[array_i] = malloc(i - start + 1);
+        if (!array[array_i]) return NULL;
+        ft_strlcpy(array[array_i], &str[start], i - start + 1);
+        array_i++;
+    }
+
+    array[array_i] = NULL;  // NULL-terminate the array
+    return array;
+}
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
