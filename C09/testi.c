@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   testi.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 16:24:11 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/11 16:37:38 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/11 15:13:36 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/11 15:18:36 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include <stdio.h>
 
-# include <unistd.h>
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int	i;
 
-typedef int	t_bool;
-# define EVEN(nbr) (nbr % 2 == 0)
-# define TRUE 1
-# define FALSE 0
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-# define SUCCESS 0
+	i = 0;
+	while (src[i] != '\0' && i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
+}
 
-#endif
+int	main(void)
+{
+	char str[20] = "Hello World";
+	char dest[20];
+	char *c;
+
+	c = ft_strncpy(dest, &str[6], 5);
+	printf("%s", dest);
+	return (0);
+}

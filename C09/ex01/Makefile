@@ -1,6 +1,8 @@
-SOURCES := $(wildcard ./srcs/*.c)
+SOURCES = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
 
-OBJECTS = $(SOURCES:.c=.o)
+PATH_SOURCES = $(addprefix ./srcs/, $(SOURCES))
+
+OBJECTS = $(PATH_SOURCES:.c=.o)
 
 HEADER = ./includes/
 
