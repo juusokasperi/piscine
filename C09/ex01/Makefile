@@ -4,17 +4,21 @@ PATH_SOURCES = $(addprefix ./srcs/, $(SOURCES))
 
 OBJECTS = $(PATH_SOURCES:.c=.o)
 
-HEADER = ./includes/
+HEADERS = ft.h
+
+INCLUDES = ./includes/
+
+PATH_HEADER = $(addprefix $(INCLUDES), $(HEADERS))
 
 CC = cc
 
-CFLAGS += -Wall -Wextra -Werror -I$(HEADER)
+CFLAGS += -Wall -Wextra -Werror -I$(INCLUDES)
 
-ARFLAGS = -src
+ARFLAGS = -rcs
 
 NAME = libft.a
 
-%.o: %.c
+%.o: %.c $(PATH_HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
