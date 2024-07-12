@@ -1,6 +1,8 @@
-SOURCES = ft_display_file.c
+S = ./srcs/
 
-PATH_SOURCES = $(addprefix, ./srcs/$(SOURCES))
+SRC = $S/ft_display_file.c
+
+OBJ = $(SRC:%.c=%.o)
 
 CC = cc
 
@@ -10,9 +12,18 @@ ARFLAGS = -rcs
 
 NAME = ft_display_file
 
-$(NAME):
-	$(CC) $(CFLAGS) $(PATH_SOURCES) -o $(NAME)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
-.PHONY: all
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+.PHONY: all clean fclean re
