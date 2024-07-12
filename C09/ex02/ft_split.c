@@ -6,12 +6,11 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:31:13 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/11 23:23:45 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/12 10:33:29 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int		is_separator(char c, char *charset)
 {
@@ -32,18 +31,18 @@ int		is_separator(char c, char *charset)
 int		count_substr(char *str, char *charset)
 {
 	int	i;
-	int	substr;
+	int	count;
 
-	substr = 0;
+	count = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
 		if (is_separator(str[i + 1], charset) == 1
 				&& is_separator(str[i], charset) == 0)
-			substr++;
+			count++;
 		i++;
 	}
-	return (substr);
+	return (count);
 }
 
 void	copy_str(char *dest, char *src, char *charset)
@@ -59,13 +58,13 @@ void	copy_str(char *dest, char *src, char *charset)
 	dest[i] = '\0';
 }
 
-void	write_split(char **split, char *str, char *charset)
+void	fill_array(char **array, char *str, char *charset)
 {
 	int		i;
 	int		j;
-	int		substr;
+	int		cell;
 
-	substr = 0;
+	cell = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
@@ -76,10 +75,10 @@ void	write_split(char **split, char *str, char *charset)
 			j = 0;
 			while (is_separator(str[i + j], charset) == 0)
 				j++;
-			split[substr] = (char*)malloc((j + 1) * sizeof(char)  );
-			copy_str(split[substr], str + i, charset);
-			i += j;
-			substr++;
+			array[cell] = (char*)malloc((j + 1));
+			copy_str(array[cell], str + i, charset);
+			i = j + i;
+			cell++;
 		}
 	}
 }
@@ -87,29 +86,13 @@ void	write_split(char **split, char *str, char *charset)
 char	**ft_split(char *str, char *charset)
 {
 	char	**array;
-	int		substr;
+	int		array_cells;
 
-	substr = count_substr(str, charset);
-	array = (char**)malloc((substr + 1) * sizeof(char*));
-	array[substr] = 0;
-	write_split(array, str, charset);
+	array_cells = count_substr(str, charset);
+	array = (char**)malloc((array_cells + 1) * sizeof(char*));
+	if (!array)
+		return (0);
+	fill_array(array, str, charset);
+	array[array_cells] = 0;
 	return (array);
-}
-
-int	main(void)
-{
-	char	*str;
-	char	*charset;
-	char	**array;
-	int		i;
-
-	str = "eHeeello World";
-	charset = "eWr";
-	array = ft_split(str, charset);
-	i = 0;
-	while (array[i])
-	{
-		printf("Array[%i] is %s\n", i, array[i]);
-		i++;
-	}
 }

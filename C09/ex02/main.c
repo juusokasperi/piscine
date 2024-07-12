@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testi.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 15:13:36 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/11 15:18:36 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/12 10:30:58 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/12 10:31:57 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	**ft_split(char *str, char *charset);
+
+int	main(int argc, char **argv)
 {
-	unsigned int	i;
+	char	**array;
+	int		i;
 
+	if (argc != 3)
+	{
+		printf("Error: Usage %s <string> <charset>\n", argv[0]);
+		return (1);
+	}
+	array = ft_split(argv[1], argv[2]);
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (array[i])
 	{
-		dest[i] = src[i];
+		printf("Array[%i] is %s\n", i, array[i]);
+		free(array[i]);
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
-}
-
-int	main(void)
-{
-	char str[20] = "Hello World";
-	char dest[20];
-	char *c;
-
-	c = ft_strncpy(dest, &str[6], 5);
-	printf("%s", dest);
+	free(array[i]);
+	free(array);
 	return (0);
 }
