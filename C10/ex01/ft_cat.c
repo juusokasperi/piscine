@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/13 17:41:46 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/13 17:56:58 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_display_file(char *str)
 	printf("fd is %i\n", file_descriptor);
 	if (file_descriptor == -1)
 	{
-		printf("Errno is %s\n", strerror(errno));
+		printf("Errno: %s\n", strerror(errno));
 		return (0);
 	}
 	nb_read = -1;
@@ -43,7 +43,10 @@ int	ft_display_file(char *str)
 	{
 		nb_read = read(file_descriptor, buffer, 1);
 		if (nb_read == -1)
+		{
+			printf("Errno: %s\n", strerror(errno));
 			return (0);
+		}
 		buffer[nb_read] = 0;
 		ft_putstr(buffer);
 	}
