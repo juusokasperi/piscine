@@ -6,13 +6,13 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:31:13 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/12 12:02:51 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/13 14:29:19 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		is_separator(char c, char *charset)
+int	is_separator(char c, char *charset)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int		is_separator(char c, char *charset)
 	return (0);
 }
 
-int		count_substr(char *str, char *charset)
+int	count_substr(char *str, char *charset)
 {
 	int	i;
 	int	count;
@@ -38,7 +38,7 @@ int		count_substr(char *str, char *charset)
 	while (str[i] != '\0')
 	{
 		if (is_separator(str[i + 1], charset) == 1
-				&& is_separator(str[i], charset) == 0)
+			&& is_separator(str[i], charset) == 0)
 			count++;
 		i++;
 	}
@@ -58,7 +58,7 @@ void	copy_str(char *dest, char *src, char *charset)
 	dest[i] = '\0';
 }
 
-void	fill_array(char **array, char *str, char *charset)
+int	fill_array(char **array, char *str, char *charset)
 {
 	int		i;
 	int		j;
@@ -75,12 +75,15 @@ void	fill_array(char **array, char *str, char *charset)
 			j = 0;
 			while (is_separator(str[i + j], charset) == 0)
 				j++;
-			array[cell] = (char*)malloc((j + 1));
+			array[cell] = (char *)malloc((j + 1) * sizeof(char *));
+			if (!array[cell])
+				return (0);
 			copy_str(array[cell], str + i, charset);
 			i = j + i;
 			cell++;
 		}
 	}
+	return (1);
 }
 
 char	**ft_split(char *str, char *charset)
@@ -89,10 +92,11 @@ char	**ft_split(char *str, char *charset)
 	int		array_cells;
 
 	array_cells = count_substr(str, charset);
-	array = (char**)malloc((array_cells + 1) * sizeof(char*));
+	array = (char **)malloc((array_cells + 1) * sizeof(char *));
 	if (!array)
 		return (0);
-	fill_array(array, str, charset);
+	if (!fill_array(array, str, charset))
+		return (0);
 	array[array_cells] = 0;
 	return (array);
 }

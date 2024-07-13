@@ -1,16 +1,20 @@
 S = ./srcs/
 
-SRC = $S/ft_display_file.c
+SRC = $S/ft_cat.c
+
+I = ./includes/
+
+HDR = $I/ft.h
 
 OBJ = $(SRC:%.c=%.o)
 
 CC = cc
 
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror -I$I
 
 ARFLAGS = -rcs
 
-NAME = ft_display_file
+NAME = ft_cat
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

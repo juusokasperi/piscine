@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_tail.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 12:49:49 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/13 17:10:44 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/13 19:44:20 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <errno.h>
 #include <fcntl.h>
+#include <string.h>
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
@@ -21,27 +23,43 @@ void	ft_putstr(char *str)
 		str++;
 	}
 }
-
-void	ft_putchar(char c)
+void	print_error(char *str)
 {
-	write(1, &c, 1);
+		ft_putstr("tail: cannot open '");
+		ft_putstr(str);
+		ft_putstr("' for reading: ");
+		ft_putstr(strerror(errno));
+		ft_putstr("\n");
 }
-
-int	ft_display_file(char *str)
+void	print_name(char *str)
 {
-	char	buffer[100];
+	ft_putstr("==> ");
+	ft_putstr(str);
+	ft_putstr(" <==");
+	ft_putstr("\n");
+}
+int	ft_display_file(char *str, int multiple)
+{
+	char	buffer[1024];
 	int		file_descriptor;
 	int		nb_read;
 
 	file_descriptor = open(str, O_RDONLY);
 	if (file_descriptor == -1)
+	{
+		print_error(str);
 		return (0);
+	}
+	if (multiple)
+		print_name(str);
 	nb_read = -1;
 	while (nb_read != 0)
 	{
-		nb_read = read(file_descriptor, buffer, 100);
+		nb_read = read(file_descriptor, buffer, 1024);
 		if (nb_read == -1)
+		{
 			return (0);
+		}
 		buffer[nb_read] = 0;
 		ft_putstr(buffer);
 	}
@@ -51,21 +69,20 @@ int	ft_display_file(char *str)
 
 int	main(int argc, char **argv)
 {
+	int	i;
+
 	if (argc < 2)
-	{
-		write(1, "File name missing.\n", 19);
 		return (1);
-	}
-	if (argc > 2)
-	{
-		write(1, "Too many arguments.\n", 20);
-		return (1);
-	}
-	if (ft_display_file(argv[1]))
-		return (0);
+	i = 1;
+	if (argc == 2)
+		ft_display_file(argv[i], 0);
 	else
 	{
-		write(1, "Cannot read file.\n", 18);
-		return (1);
+	while (i < argc)
+		{
+			ft_display_file(argv[i], 1);
+			i++;
+		}
 	}
+	return (0);
 }

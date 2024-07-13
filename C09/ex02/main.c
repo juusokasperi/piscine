@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 10:30:58 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/12 10:31:57 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/13 14:24:17 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ int	main(int argc, char **argv)
 	}
 	array = ft_split(argv[1], argv[2]);
 	i = 0;
+	if (!array[i])
+		printf("Array[%i] is \"%s\"\n", i, array[i]);
 	while (array[i])
 	{
-		printf("Array[%i] is %s\n", i, array[i]);
+		printf("Array[%i] is \"%s\"\n", i, array[i]);
 		free(array[i]);
 		i++;
 	}

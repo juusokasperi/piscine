@@ -6,15 +6,11 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/13 17:56:58 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/13 19:24:48 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <string.h>
-#include <unistd.h>
+#include "ft.h"
 
 void	ft_putstr(char *str)
 {
@@ -24,27 +20,34 @@ void	ft_putstr(char *str)
 		str++;
 	}
 }
+void	print_error(char *str)
+{
+		ft_putstr("cat: ");
+		ft_putstr(str);
+		ft_putstr(": ");
+		ft_putstr(strerror(errno));
+		ft_putstr("\n");
+}
 
 int	ft_display_file(char *str)
 {
-	char	buffer[2];
+	char	buffer[1024];
 	int		file_descriptor;
 	int		nb_read;
 
 	file_descriptor = open(str, O_RDONLY);
-	printf("fd is %i\n", file_descriptor);
 	if (file_descriptor == -1)
 	{
-		printf("Errno: %s\n", strerror(errno));
+		print_error(str);
 		return (0);
 	}
 	nb_read = -1;
 	while (nb_read != 0)
 	{
-		nb_read = read(file_descriptor, buffer, 1);
+		nb_read = read(file_descriptor, buffer, 1024);
 		if (nb_read == -1)
 		{
-			printf("Errno: %s\n", strerror(errno));
+			print_error(str);
 			return (0);
 		}
 		buffer[nb_read] = 0;
@@ -56,8 +59,15 @@ int	ft_display_file(char *str)
 
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	printf("argv1 is %s\nargv2 is %s\n", argv[0], argv[1]);
-	ft_display_file(argv[1]);
+	int	i;
+
+	if (argc < 2)
+		return (1);
+	i = 1;
+	while (i < argc)
+	{
+		ft_display_file(argv[i]);
+		i++;
+	}
 	return (0);
 }

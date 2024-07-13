@@ -6,13 +6,16 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 17:11:21 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/13 17:12:04 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/13 19:06:17 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_H
 # define FT_H
 
-int	ft_display_file(char *str);
+#include <errno.h>
+#include <fcntl.h>
+#include <string.h>
+#include <unistd.h>
 
 #endif

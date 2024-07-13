@@ -18,13 +18,13 @@ ARFLAGS = -rcs
 
 NAME = libft.a
 
+all: $(NAME)
+
 %.o: %.c $(PATH_HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS)
 		ar $(ARFLAGS) $(NAME) $(OBJECTS)
-
-all: $(NAME)
 
 clean:
 	rm -f $(OBJECTS)
