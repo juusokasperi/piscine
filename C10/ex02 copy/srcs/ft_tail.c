@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/15 00:22:19 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/14 22:59:47 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,18 @@ char *display_file(char *str, int *size, int files_to_read)
         print_name(str);
     content = read_file(file_descriptor, size);
     close(file_descriptor);
-    return (content);
+    return content;
 }
 
 void	ft_tail(char *str, int bytes_to_read, int i, int files_to_read)
 {
 	int		file_size;
 	char	*file;
-    (void)i;
 
 	file = display_file(str, &file_size, files_to_read);
 	if (errno)
 		print_error(str);
-    else if (bytes_to_read)
+	else if (bytes_to_read)
 		print_n_bytes(file, bytes_to_read, file_size);
 	else
 		print_ten(file, file_size);
