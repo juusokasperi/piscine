@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/13 22:47:56 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/14 09:15:40 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 void	ft_putstr(char *str)
 {
 	while (*str != '\0')
-	{
-		write(1, str, 1);
-		str++;
-	}
+		write(1, str++, 1);
 }
 
 void	print_error(char *str)
@@ -79,5 +76,5 @@ int	main(int argc, char **argv)
 		ft_display_file(argv[i]);
 		i++;
 	}
-	return (0);
+	return (errno);
 }
