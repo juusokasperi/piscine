@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:38:11 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/14 23:21:10 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/15 10:19:19 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_putstr(char *str)
 
 void	print_error(char *str)
 {
-	ft_putstr("tail: ");
+	ft_putstr("tail: cannot open '");
 	ft_putstr(str);
-	ft_putstr(": ");
+	ft_putstr("' for reading: ");
 	ft_putstr(strerror(errno));
 	ft_putstr("\n");
 }

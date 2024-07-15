@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/15 00:22:19 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/15 10:25:09 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ void	ft_tail(char *str, int bytes_to_read, int i, int files_to_read)
 		print_n_bytes(file, bytes_to_read, file_size);
 	else
 		print_ten(file, file_size);
-	if (i < files_to_read - 1)
+	if (i < files_to_read - 1 && !errno)
 		write(1, "\n", 1);
 }

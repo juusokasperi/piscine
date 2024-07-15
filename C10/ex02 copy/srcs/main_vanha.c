@@ -6,13 +6,13 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:37:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/14 23:13:09 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/15 10:00:05 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-void	handle_no_arguments(void)
+int	handle_no_arguments(void)
 {
 	char	buffer[1024];
 	char	store[2048];
@@ -35,73 +35,43 @@ void	handle_no_arguments(void)
 		i = 0;
 	}
 	write(1, store, len);
+	return (0);
 }
-#include <stdio.h>
 
-int	has_flag_c(char *str, int i)
+int	has_flag_c(char *str)
 {
 	if (str[0] == '-' && str[1] == 'c'
 		&& str[2] == '\0')
-		return (i);
-	return (-1);
+		return (1);
+	return (0);
 }
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	return (dest);
-}
-
+#include <stdio.h>
 char	**check_flag_c(char **argv, int *files_to_read, int *bytes_to_read)
 {
 	int	i;
-	int	j;
-	int	y;
-	int	flag_c;
-	char	**files;
 
-	*bytes_to_read = 0;
-	i = 0;
-	while (i < *files_to_read)
+	i = 1;
+	while (argv[i])
 	{
-		flag_c = has_flag_c(argv[i], i);
-		if (flag_c >= 0)
-			break;
-		i++;
-	}
-	printf("has flag is %i\n", flag_c);
-	printf("filestoread is %i\n", *files_to_read);
-	if (flag_c >= 0)
-	{
-		*bytes_to_read = ft_atoi(argv[flag_c + 1]);
-		*files_to_read -= 2;
-		files = (char **)malloc((*files_to_read) * sizeof(char *));
-		i = 1;
-		y = 0;
-		printf("flag_c is %i\n", flag_c);
-		while (argv[i])
+		if (has_flag_c(argv[i]))
 		{
-			j = 0;
-			if (i == flag_c)
-				i += 2;
-			if (!argv[i])
-				break;
-			while (argv[i][j])
-				j++;
-			printf("argv[i] is %s\n", argv[i]);
-			files[y] = (char *)malloc((j + 1) * sizeof(char *));
-			files[y] = ft_strcpy(files[y], argv[i]);
-			printf("files[%i] is %s\n", y, files[y]);
-			i++;
-			y++;
+			if (i == *files_to_read)
+			{
+				print_missing_arg();
+				argv[0] = 0;
+				return(argv);
+			}
+			*bytes_to_read = ft_atoi(argv[i + 1]);
+			if (*bytes_to_read == -1)
+			{
+				print_invalid_bytes(argv[i + 1]);
+				argv[0] = 0;
+				return(argv);
+			}
+			*files_to_read -= 2;
+			return (argv + 1);
 		}
-		return (files);
+		i++;
 	}
 	return (argv + 1);
 }
@@ -114,30 +84,22 @@ int	main(int argc, char **argv)
 	char **files;
 
 	files_to_read = argc - 1;
-	printf("filestoread is %i\n", files_to_read);
 	bytes_to_read = 0;
 	if (files_to_read == 0)
-	{
-		handle_no_arguments();
-		return (0);
-	}
+		return (handle_no_arguments());
 	files = check_flag_c(argv, &files_to_read, &bytes_to_read);
-	i = 0;
-	while (files[i])
-	{
-		printf("back in main, files[%i] is %s\n", i, files[i]);
-		i++;
-	}
-	i = 0;
-	printf("files_to_read is %i\n", files_to_read);
+	if (!files[0])
+		return (1);
+	i  = 0;
 	if (files_to_read == 1)
 	{
-		printf("now going to ft_tail, sending files[i]: %s\n", files[i]);
-		printf("bytes_to_read: %i\n", bytes_to_read);
-		ft_tail(files[i], bytes_to_read, i, files_to_read);
+		if (has_flag_c(files[i]))
+			i += 2;
+		ft_tail(files[0], bytes_to_read, 0, files_to_read);
 	}
 	else
 	{
+		i = 0;
 		while (i < files_to_read)
 		{
 			ft_tail(files[i], bytes_to_read, i, files_to_read);
