@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/15 10:25:09 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/15 10:31:16 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,47 @@ void	ft_tail(char *str, int bytes_to_read, int i, int files_to_read)
 		print_ten(file, file_size);
 	if (i < files_to_read - 1 && !errno)
 		write(1, "\n", 1);
+    errno = 0;
 }
+/*
+Nyt probleema on seuraava:
+
+tail test esa housu srcs/ft_atoi.c
+==> test <==
+test
+tail: cannot open 'esa' for reading: No such file or directory
+tail: cannot open 'housu' for reading: No such file or directory
+
+==> srcs/ft_atoi.c <==
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			atoi = atoi * 10 + (str[i] - '0');
+		if (str[i] < '0' || str[i] > '9')
+			return (-1);
+		i++;
+	}
+	return (s * atoi);
+}
+
+./ft_tail test esa housu srcs/ft_atoi.c
+==> test <==
+test
+
+tail: cannot open 'esa' for reading: No such file or directory
+tail: cannot open 'housu' for reading: No such file or directory
+==> srcs/ft_atoi.c <==
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			atoi = atoi * 10 + (str[i] - '0');
+		if (str[i] < '0' || str[i] > '9')
+			return (-1);
+		i++;
+	}
+	return (s * atoi);
+}
+
+Eli jos avatun filen jalkeinen seuraava file ei ole avattavissa, loppuun ei tule valia..
+Ja jos failatun filen jalkeen tulee taas tiedosto, mita loytyy,, tulee newline.
+*/
