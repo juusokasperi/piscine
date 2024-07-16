@@ -1,4 +1,4 @@
-SOURCES = ft_atoi.c ft_tail.c main.c print_handlers.c print_handlers_2.c
+SOURCES = ft_atoi.c ft_tail.c main.c print_handlers.c print_handlers_2.c init.c
 
 PATH_SOURCES = $(addprefix ./srcs/, $(SOURCES))
 

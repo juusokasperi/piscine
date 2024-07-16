@@ -6,13 +6,13 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:37:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/15 10:17:14 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/16 11:14:09 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-void	handle_no_arguments(void)
+int	handle_no_arguments(void)
 {
 	char	buffer[1024];
 	char	store[2048];
@@ -35,85 +35,22 @@ void	handle_no_arguments(void)
 		i = 0;
 	}
 	write(1, store, len);
+	return (0);
+}
+
+void	free_files(char ***files, int files_to_read)
+{
+	int	i;
+
+	i = 0;
+	while (i < files_to_read)
+	{
+		free((*files)[i]);
+		i++;
+	}
+	free(*files);
 }
 #include <stdio.h>
-
-int	has_flag_c(char *str, int i)
-{
-	if (str[0] == '-' && str[1] == 'c'
-		&& str[2] == '\0')
-		return (i);
-	return (-1);
-}
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	return (dest);
-}
-
-char	**check_flag_c(char **argv, int *files_to_read, int *bytes_to_read)
-{
-	int	i;
-	int	j;
-	int	y;
-	int	flag_c;
-	char	**files;
-
-	*bytes_to_read = 0;
-	i = 0;
-	flag_c = -1;
-	while (i <= *files_to_read)
-	{
-		flag_c = has_flag_c(argv[i], i);
-		if (flag_c >= 0)
-			break;
-		i++;
-	}
-	if (flag_c >= 0)
-	{
-		if (flag_c == *files_to_read)
-		{
-			print_missing_arg();
-			argv[0] = 0;
-			return(argv);
-		}
-		*bytes_to_read = ft_atoi(argv[flag_c + 1]);
-		if (*bytes_to_read == -1)
-		{
-			print_invalid_bytes(argv[i + 1]);
-			argv[0] = 0;
-			return(argv);
-		}
-		*files_to_read -= 2;
-		files = (char **)malloc((*files_to_read) * sizeof(char *));
-		i = 1;
-		y = 0;
-		while (argv[i])
-		{
-			j = 0;
-			if (i == flag_c)
-				i += 2;
-			if (!argv[i])
-				break;
-			while (argv[i][j])
-				j++;
-			files[y] = (char *)malloc((j + 1) * sizeof(char *));
-			files[y] = ft_strcpy(files[y], argv[i]);
-			i++;
-			y++;
-		}
-		return (files);
-	}
-	return (argv + 1);
-}
-
 int	main(int argc, char **argv)
 {
 	int	i;
@@ -124,18 +61,13 @@ int	main(int argc, char **argv)
 	files_to_read = argc - 1;
 	bytes_to_read = 0;
 	if (files_to_read == 0)
-	{
-		handle_no_arguments();
-		return (0);
-	}
+		return (handle_no_arguments());
 	files = check_flag_c(argv, &files_to_read, &bytes_to_read);
 	if (!files[0])
 		return (1);
 	i = 0;
 	if (files_to_read == 1)
-	{
 		ft_tail(files[i], bytes_to_read, i, files_to_read);
-	}
 	else
 	{
 		while (i < files_to_read)
@@ -144,8 +76,12 @@ int	main(int argc, char **argv)
 			i++;
 		}
 	}
+	free_files(&files, files_to_read);
 	return (0);
 }
 
-// jaa osiin, siisti koodia.
-// lisaa muistin vapautus
+// tsekkaa esim talla:
+// ./ft_tail -c 50 test srcs/ft_atoi.c esa srcs/ srcs/print_handlers.c
+// tuleeko toi "srcs/" oikein, etta sanoo vaan No such file or directory, vai
+// paaseeko se eteenpain ja printtaa sen file -headerin ja ilmottaa vasta sitten
+// "Is directory"?
