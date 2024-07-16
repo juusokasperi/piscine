@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:37:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/16 11:14:09 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/16 14:21:40 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	free_files(char ***files, int files_to_read)
 	}
 	free(*files);
 }
-#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
-	int	i;
-	int bytes_to_read;
-	int	files_to_read;
-	char **files;
+	int		i;
+	int		bytes_to_read;
+	int		files_to_read;
+	char	**files;
 
 	files_to_read = argc - 1;
 	bytes_to_read = 0;
@@ -85,3 +85,6 @@ int	main(int argc, char **argv)
 // tuleeko toi "srcs/" oikein, etta sanoo vaan No such file or directory, vai
 // paaseeko se eteenpain ja printtaa sen file -headerin ja ilmottaa vasta sitten
 // "Is directory"?
+
+// muuten mun mielesta kaikki kunnossa, mutta initissa tarvii 5 argumenttia,
+// joka on liikaa

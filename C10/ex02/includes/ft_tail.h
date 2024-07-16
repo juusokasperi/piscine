@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:23:53 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/16 10:24:03 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/16 14:19:27 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_tail_params
+{
+	int		*files_to_read;
+	int		*bytes_to_read;
+	int		flag_c;
+}	t_tail_params;
 
 void	ft_putstr(char *str);
 int		ft_atoi(char *str);

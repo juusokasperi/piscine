@@ -10,7 +10,7 @@ INCLUDES = ./includes/
 
 PATH_HEADER = $(addprefix $(INCLUDES), $(HEADERS))
 
-CC = cc
+CC = gcc
 
 CFLAGS += -Wall -Wextra -Werror -I$(INCLUDES)
 
