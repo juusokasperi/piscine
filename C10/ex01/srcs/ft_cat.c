@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/14 09:15:40 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/16 15:25:08 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	print_error(char *str)
 	ft_putstr("\n");
 }
 
-int	ft_display_file(char *str)
+void	ft_display_file(char *str)
 {
 	char	buffer[25600];
 	int		file_descriptor;
@@ -37,7 +37,7 @@ int	ft_display_file(char *str)
 	if (file_descriptor == -1)
 	{
 		print_error(str);
-		return (0);
+		return ;
 	}
 	nb_read = -1;
 	while (nb_read != 0)
@@ -46,12 +46,12 @@ int	ft_display_file(char *str)
 		if (nb_read == -1)
 		{
 			print_error(str);
-			return (0);
+			return ;
 		}
 		write(1, buffer, nb_read);
 	}
 	close(file_descriptor);
-	return (1);
+	return ;
 }
 
 int	main(int argc, char **argv)

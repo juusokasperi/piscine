@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:37:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/16 14:21:40 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/16 14:33:13 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,3 +88,5 @@ int	main(int argc, char **argv)
 
 // muuten mun mielesta kaikki kunnossa, mutta initissa tarvii 5 argumenttia,
 // joka on liikaa
+
+// tarkista viela tail -c -50 srcs/ft_atoi.c -> miten printtaa jos miinus?

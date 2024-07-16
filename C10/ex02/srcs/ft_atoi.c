@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:28:26 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/16 11:54:25 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/16 14:32:32 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ int	ft_atoi(char *str)
 			return (-1);
 		i++;
 	}
-	return (s * atoi);
+	return (atoi);
 }
