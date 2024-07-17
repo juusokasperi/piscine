@@ -6,13 +6,13 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:14 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 11:15:10 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 15:28:48 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_hexdump.h"
 
-void	write_address(int offset)
+void	write_address(int offset, int last)
 {
 	char	address[8];
 	char	*hex;
@@ -30,6 +30,8 @@ void	write_address(int offset)
 	}
 	write(1, address, 8);
 	write(1, "  ", 2);
+	if (last)
+		write(1, "\n", 1);
 }
 
 void	write_hex(char *buffer, int nb_read)
@@ -77,7 +79,7 @@ void	write_printables(char *buffer, int nb_read)
 
 void	print_row(char *buffer, int offset, int nb_read)
 {
-	write_address(offset);
+	write_address(offset, 0);
 	if (nb_read != 0)
 	{
 		write_hex(buffer, nb_read);

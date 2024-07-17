@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:23:53 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/16 14:19:27 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 15:18:10 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ typedef struct s_tail_params
 	int		flag_c;
 }	t_tail_params;
 
-void	ft_putstr(char *str);
+void	print_error_dir(char *str);
+void	ft_putstr(char *str, int output);
 int		ft_atoi(char *str);
 void	ft_tail(char *str, int bytes_to_read, int i, int argc);
 void	print_error(char *str);

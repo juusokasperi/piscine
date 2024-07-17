@@ -6,33 +6,37 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:38:11 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/16 14:21:02 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 13:38:10 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-void	ft_putstr(char *str)
-{
-	while (*str != '\0')
-		write(1, str++, 1);
-}
-
 void	print_error(char *str)
 {
-	ft_putstr("tail: cannot open '");
-	ft_putstr(str);
-	ft_putstr("' for reading: ");
-	ft_putstr(strerror(errno));
-	ft_putstr("\n");
+	ft_putstr("tail: cannot open '", 2);
+	ft_putstr(str, 2);
+	ft_putstr("' for reading: ", 2);
+	ft_putstr(strerror(errno), 2);
+	ft_putstr("\n", 2);
+}
+
+void	print_error_dir(char *str)
+{
+	print_name(str);
+	ft_putstr("tail: error reading '", 2);
+	ft_putstr(str, 2);
+	ft_putstr(": ", 2);
+	ft_putstr(strerror(errno), 2);
+	ft_putstr("\n", 2);
 }
 
 void	print_name(char *str)
 {
-	ft_putstr("==> ");
-	ft_putstr(str);
-	ft_putstr(" <==");
-	ft_putstr("\n");
+	ft_putstr("==> ", 1);
+	ft_putstr(str, 1);
+	ft_putstr(" <==", 1);
+	ft_putstr("\n", 1);
 }
 
 void	print_ten(char *file, int file_size)

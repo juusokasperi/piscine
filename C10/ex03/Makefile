@@ -1,10 +1,10 @@
 S = ./srcs/
 
-SRC = $S/ft_cat.c
+SRC = $S/main.c $S/helper_functions.c $S/init.c $S/print_rows.c
 
 I = ./includes/
 
-HDR = $I/ft.h
+HDR = $I/ft_hexdump.h
 
 OBJ = $(SRC:%.c=%.o)
 
@@ -12,7 +12,7 @@ CC = cc
 
 CFLAGS += -Wall -Wextra -Werror -I$I
 
-NAME = ft_cat
+NAME = ft_hexdump
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -30,4 +30,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean re

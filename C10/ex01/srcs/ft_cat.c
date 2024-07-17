@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/16 15:25:08 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 15:04:55 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	print_error(char *str)
 	ft_putstr(": ");
 	ft_putstr(strerror(errno));
 	ft_putstr("\n");
+	errno = 1;
 }
 
 void	ft_display_file(char *str)

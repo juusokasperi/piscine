@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:37:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/16 14:33:13 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 17:13:59 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,3 @@ int	main(int argc, char **argv)
 	free_files(&files, files_to_read);
 	return (0);
 }
-
-// tsekkaa esim talla:
-// ./ft_tail -c 50 test srcs/ft_atoi.c esa srcs/ srcs/print_handlers.c
-// tuleeko toi "srcs/" oikein, etta sanoo vaan No such file or directory, vai
-// paaseeko se eteenpain ja printtaa sen file -headerin ja ilmottaa vasta sitten
-// "Is directory"?
-
-// muuten mun mielesta kaikki kunnossa, mutta initissa tarvii 5 argumenttia,
-// joka on liikaa
-
-// tarkista viela tail -c -50 srcs/ft_atoi.c -> miten printtaa jos miinus?

@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:07:23 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 11:17:44 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 16:07:19 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,4 @@ void	str_copy(char *dest, char *src, int nb_read)
 {
 	while (nb_read--)
 		*dest++ = *src++;
-}
-
-void	*fill_zeros(char *str)
-{
-	int	i;
-
-	i = 16;
-	while (i--)
-		*str++ = '0';
-	return (str);
 }

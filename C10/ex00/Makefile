@@ -2,13 +2,11 @@ S = ./srcs/
 
 SRC = $S/ft_display_file.c
 
-OBJ = $(SRC:%.c=%.o)
+OBJ = $(SRC:.c=.o)
 
 CC = cc
 
 CFLAGS += -Wall -Wextra -Werror
-
-ARFLAGS = -rcs
 
 NAME = ft_display_file
 
@@ -26,4 +24,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-.PHONY: all clean fclean
+re: fclean all
+
+.PHONY: all clean fclean re
