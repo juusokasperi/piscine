@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:15:05 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 06:21:32 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 06:23:12 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	write_hex(char *buffer, int nb_read)
 	}
 	while (i < 16)
 	{
+		if (i == 7)
+			write(1, " ", 1);
 		write(1, "   ", 3);
 		i++;
 	}
