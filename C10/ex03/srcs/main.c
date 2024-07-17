@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:15:05 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 17:27:05 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 17:47:29 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_display_file(char *str, t_file_info *info)
 	}
 	return (close (info->fd), 1);
 }
-#include <stdio.h>
+
 void	free_files(char ***files, int argc)
 {
 	int	i;
@@ -81,7 +81,7 @@ int	main(int argc, char **argv)
 
 	files = check_flag_c(argv, &argc);
 	if (!files[0])
-		return (1);
+		return (free_files(&files, argc), 1);
 	i = 0;
 	info.offset = 0;
 	info.partial_size = 0;
@@ -97,6 +97,5 @@ int	main(int argc, char **argv)
 	if (info.offset == 0)
 		return (err_all_failed());
 	write_address(info.offset, 1);
-	free_files(&files, argc);
-	return (0);
+	return (free_files(&files, argc), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 05:56:47 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 17:29:12 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 17:39:12 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	*ft_range(int min, int max)
 
 	if (min >= max)
 		return (0);
-	range = (unsigned)max - (unsigned)min;
+	range = max - min;
+
 	if (range < 0)
 		range = -range;
 	str = malloc(range * 4);
