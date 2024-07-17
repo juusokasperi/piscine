@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:37:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 21:22:10 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:30:30 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 		return (handle_no_arguments());
 	files = check_flag_c(argv, &files_to_read, &bytes_to_read);
 	if (!files[0])
-		return (1);
+		return (free_files(&files, 1), 1);
 	i = 0;
 	while (i < files_to_read)
 	{

@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:15:05 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 20:10:51 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:35:54 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	err_all_failed(void)
 {
-	write(1, "hexdump: all input file arguments failed\n", 42);
+	write(2, "hexdump: all input file arguments failed\n", 42);
 	return (1);
 }
 
