@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 17:01:54 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:10:14 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ char	*read_part(int fd, int *nb_read)
 	return (part);
 }
 
-char	*append_part(char *content, char *content_part, int content_len, int part_len)
+char	*append_part(char *content, char *content_part,
+	int content_len, int part_len)
 {
 	char	*new_content;
 	int		i;
