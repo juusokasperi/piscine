@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:22:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 17:21:23 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:19:01 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	init(char ***files, char **argv, t_tail_params *params)
 	{
 		*files = (char **)malloc(1 * sizeof(char *));
 		(*files)[0] = 0;
-		*(params->files_to_read) -= 2;
 		return (0);
 	}
 	*(params->files_to_read) -= 2;
@@ -94,7 +93,6 @@ char	**check_flag_c(char **argv, int *files_to_read, int *bytes_to_read)
 	int				i;
 	t_tail_params	params;
 
-	*bytes_to_read = 0;
 	i = 0;
 	params.flag_c = -1;
 	params.files_to_read = files_to_read;

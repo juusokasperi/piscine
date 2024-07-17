@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:37:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 17:13:59 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:22:10 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,10 @@ int	main(int argc, char **argv)
 	if (!files[0])
 		return (1);
 	i = 0;
-	if (files_to_read == 1)
-		ft_tail(files[i], bytes_to_read, i, files_to_read);
-	else
+	while (i < files_to_read)
 	{
-		while (i < files_to_read)
-		{
-			ft_tail(files[i], bytes_to_read, i, files_to_read);
-			i++;
-		}
+		ft_tail(files[i], bytes_to_read, i, files_to_read);
+		i++;
 	}
 	free_files(&files, files_to_read);
 	return (0);
