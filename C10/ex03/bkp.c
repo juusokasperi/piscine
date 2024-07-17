@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hexdump.c                                       :+:      :+:    :+:   */
+/*   bkp.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:15:05 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 06:21:32 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/17 05:33:55 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_hexdump.h"
+#include <unistd.h>
+#include <fcntl.h>
+# include <errno.h>
+# include <string.h>
+#include <stdio.h>
+
 
 void	ft_putstrerr(char *str)
 {
@@ -123,81 +128,67 @@ void	print_row(char *buffer, int offset, int nb_read)
 
 void str_copy(char *dest, char *src, int nb_read)
 {
+    char *d = dest;
+    char *s = src;
     while (nb_read--)
-        *dest++ = *src++;
+        *d++ = *s++;
 }
 
-void	process_buffer(t_file_info *info, int *repeat, int *line_size)
+int	ft_display_file(char *str)
 {
-	if (info->nb_read == 16 && info->offset > 0 &&
-		ft_strncmp(info->buffer, info->prev_buffer, 16) == 0)
-	{
-		if (!*repeat)
-			write(1, "*\n", 2);
-			*repeat = 1;
-	}
-	else
-	{
-		print_row(info->buffer, info->offset, info->nb_read);
-		*repeat = 0;
-	}
-	str_copy(info->prev_buffer, info->buffer, 16);
-	*line_size = 0;
-	info->offset += 16;
-}
-
-int	ft_display_file(char *str, int *offset, char *partial_line, int *partial_size)
-{
-	t_file_info	info;
+	char	buffer[16];
+	char	prev_buffer[16];
+	int		file_descriptor;
+	int		nb_read;
+	int		offset;
 	int		repeat;
-	int		line_size;
+	int		line_size = 0;
 
-	line_size = *partial_size;
-	info.offset = *offset;
-	str_copy(info.buffer, partial_line, line_size);
-	str_copy(info.prev_buffer, info.buffer, 16);
 	repeat = 0;
-	info.file_descriptor = open(str, O_RDONLY);
-	if (info.file_descriptor == -1)
-		return(print_error(str), 0);
-	info.nb_read = -1;
-	while (info.nb_read != 0)
+	offset = 0;
+	file_descriptor = open(str, O_RDONLY);
+	if (file_descriptor == -1)
 	{
-		info.nb_read = read(info.file_descriptor, info.buffer + line_size, 16 - line_size);
-		line_size += info.nb_read;
-		if (line_size == 16)
-			process_buffer(&info, &repeat, &line_size);
+		print_error(str);
+		return (0);
 	}
-	if (info.nb_read == -1)
-		return(print_error(str), close(info.file_descriptor), 0);
-	*partial_size = line_size;
-	str_copy(partial_line, info.buffer, line_size);
-	*offset = info.offset;
-	return(close (info.file_descriptor), 1);
+	nb_read = -1;
+	while (nb_read != 0)
+	{
+		nb_read = read(file_descriptor, buffer, 16);
+		if (nb_read == -1)
+		{
+			print_error(str);
+			close(file_descriptor);
+			return (0);
+		}
+		if (nb_read == 16 && offset > 0
+			&& ft_strncmp(buffer, prev_buffer, 16) == 0)
+		{
+			if (!repeat)
+			{
+				write(1, "*\n", 2);
+				repeat = 1;
+			}
+		}
+		else
+			print_row(buffer, offset, nb_read);
+		str_copy(prev_buffer, buffer, nb_read);
+		offset += nb_read;
+	}
+	close(file_descriptor);
+	return (1);
 }
 
 int	main(int argc, char **argv)
 {
 	int	i;
-	int	offset;
-	int partial_size;
-	char partial_line [16];
 
 	i = 1;
-	offset = 0;
-	partial_size = 0;
 	while (i < argc)
 	{
-		if (!ft_display_file(argv[i], &offset, partial_line, &partial_size))
-			return (1);
+		ft_display_file(argv[i]);
 		i++;
 	}
-	if (partial_size > 0)
-	{
-		print_row(partial_line, offset, partial_size);
-		offset += partial_size;
-	}
-	write_address(offset);
-	write(1, "\n", 1);
-	return (0);
+return (0);
 }
