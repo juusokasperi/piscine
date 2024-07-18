@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:07:23 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 17:39:15 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 15:58:25 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	ft_putstrerr(char *str)
 		write(2, str++, 1);
 }
 
-void	print_error(char *str)
+void	print_error(char *str, char *prog_name)
 {
-	ft_putstrerr("hexdump: ");
+	ft_putstrerr(prog_name);
+	ft_putstrerr(": ");
 	ft_putstrerr(str);
 	ft_putstrerr(": ");
 	ft_putstrerr(strerror(errno));

@@ -6,13 +6,20 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 18:12:15 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/18 11:29:30 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 16:08:08 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_any(char **tab, int (*f)(char*))
 {
-	if (f(*tab))
-		return (1);
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		if (f(tab[i]))
+			return (1);
+		i++;
+	}
 	return (0);
 }

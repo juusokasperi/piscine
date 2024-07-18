@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:22:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 21:19:01 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 15:32:53 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,15 @@ int	init(char ***files, char **argv, t_tail_params *params)
 		*(params->bytes_to_read) = ft_atoi(argv[params->flag_c + 1]);
 		if (*(params->bytes_to_read) == -1)
 			error = print_invalid_bytes(argv[params->flag_c + 1]);
+		else
+			*(params->files_to_read) -= 2;
 	}
-	if (error)
+	if (error || *(params->files_to_read) == 0)
 	{
 		*files = (char **)malloc(1 * sizeof(char *));
 		(*files)[0] = 0;
 		return (0);
 	}
-	*(params->files_to_read) -= 2;
 	return (1);
 }
 
@@ -88,21 +89,18 @@ char	**fill_files(char **argv, t_tail_params *params)
 	return (files);
 }
 
-char	**check_flag_c(char **argv, int *files_to_read, int *bytes_to_read)
+char	**check_flag_c(char **argv, t_tail_params *params)
 {
 	int				i;
-	t_tail_params	params;
 
 	i = 0;
-	params.flag_c = -1;
-	params.files_to_read = files_to_read;
-	params.bytes_to_read = bytes_to_read;
-	while (i <= *files_to_read)
+	params->flag_c = -1;
+	while (i <= *(params->files_to_read))
 	{
-		params.flag_c = has_flag_c(argv[i], i);
-		if (params.flag_c >= 0)
+		params->flag_c = has_flag_c(argv[i], i);
+		if (params->flag_c >= 0)
 			break ;
 		i++;
 	}
-	return (fill_files(argv, &params));
+	return (fill_files(argv, params));
 }

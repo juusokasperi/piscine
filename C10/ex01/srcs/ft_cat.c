@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 15:04:55 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 13:56:13 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	ft_putstr(char *str)
 		write(1, str++, 1);
 }
 
-void	print_error(char *str)
+void	print_error(char *str, char *prog_name)
 {
-	ft_putstr("cat: ");
+	ft_putstr(prog_name);
+	ft_putstr(": ");
 	ft_putstr(str);
 	ft_putstr(": ");
 	ft_putstr(strerror(errno));
@@ -28,7 +29,7 @@ void	print_error(char *str)
 	errno = 1;
 }
 
-void	ft_display_file(char *str)
+void	ft_display_file(char *str, char *prog_name)
 {
 	char	buffer[25600];
 	int		file_descriptor;
@@ -37,7 +38,7 @@ void	ft_display_file(char *str)
 	file_descriptor = open(str, O_RDONLY);
 	if (file_descriptor == -1)
 	{
-		print_error(str);
+		print_error(str, prog_name);
 		return ;
 	}
 	nb_read = -1;
@@ -46,7 +47,7 @@ void	ft_display_file(char *str)
 		nb_read = read(file_descriptor, buffer, 25600);
 		if (nb_read == -1)
 		{
-			print_error(str);
+			print_error(str, prog_name);
 			return ;
 		}
 		write(1, buffer, nb_read);
@@ -74,7 +75,7 @@ int	main(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		ft_display_file(argv[i]);
+		ft_display_file(argv[i], argv[0]);
 		i++;
 	}
 	return (errno);

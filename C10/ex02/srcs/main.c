@@ -6,13 +6,13 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:37:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 21:30:30 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 15:35:52 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-int	handle_no_arguments(void)
+void	handle_no_arguments(int bytes_to_read)
 {
 	char	buffer[1024];
 	char	store[2048];
@@ -34,8 +34,10 @@ int	handle_no_arguments(void)
 		len += nb_read;
 		i = 0;
 	}
-	write(1, store, len);
-	return (0);
+	if (bytes_to_read)
+		print_n_bytes(store, bytes_to_read, len);
+	else
+		print_ten(store, len);
 }
 
 void	free_files(char ***files, int files_to_read)
@@ -53,24 +55,29 @@ void	free_files(char ***files, int files_to_read)
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	int		bytes_to_read;
-	int		files_to_read;
-	char	**files;
+	int				i;
+	t_tail_params	params;
+	int				bytes_to_read;
+	int				files_to_read;
+	char			**files;
 
-	files_to_read = argc - 1;
 	bytes_to_read = 0;
-	if (files_to_read == 0)
-		return (handle_no_arguments());
-	files = check_flag_c(argv, &files_to_read, &bytes_to_read);
-	if (!files[0])
+	files_to_read = argc - 1;
+	params.files_to_read = &files_to_read;
+	params.bytes_to_read = &bytes_to_read;
+	files = check_flag_c(argv, &params);
+	if (*params.files_to_read == 0)
+	{
+		handle_no_arguments(*params.bytes_to_read);
+		return (free_files(&files, *params.files_to_read), 0);
+	}
+	else if (!files[0] && params.files_to_read > 0)
 		return (free_files(&files, 1), 1);
 	i = 0;
-	while (i < files_to_read)
+	while (i < *params.files_to_read)
 	{
-		ft_tail(files[i], bytes_to_read, i, files_to_read);
+		ft_tail(files[i], &params, i, argv[0]);
 		i++;
 	}
-	free_files(&files, files_to_read);
-	return (0);
+	return (free_files(&files, *params.files_to_read), 0);
 }

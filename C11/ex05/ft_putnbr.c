@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 19:41:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/18 16:08:10 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/07/02 20:54:13 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/07/04 12:51:15 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int length, int (*f)(char*))
-{
-	int	i;
-	int	count;
+#include <unistd.h>
 
-	count = 0;
-	i = 0;
-	while (i < length - 1)
+void	print_char(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		if (f(tab[i]))
-			count++;
-		i++;
+		print_char('-');
+		print_char('2');
+		ft_putnbr(147483648);
+		return ;
 	}
-	return (count);
+	if (nb < 0)
+	{
+		print_char('-');
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		nb %= 10;
+	}
+	if (nb < 10)
+	{
+		print_char(nb + '0');
+	}
 }

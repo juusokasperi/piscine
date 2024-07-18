@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 20:10:14 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 15:30:25 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*fetch_file(char *str, int *size)
 	return (content);
 }
 
-void	ft_tail(char *str, int bytes_to_read, int i, int files_to_read)
+void	ft_tail(char *str, t_tail_params *params, int i, char *prog_name)
 {
 	int		file_size;
 	char	*file;
@@ -97,15 +97,15 @@ void	ft_tail(char *str, int bytes_to_read, int i, int files_to_read)
 			|| (previous_errno && errno == 21)))
 		write(1, "\n", 1);
 	if (errno == 21)
-		print_error_dir(str);
+		print_error_dir(str, prog_name, *params->files_to_read);
 	else if (errno)
-		print_error(str);
+		print_error(str, prog_name);
 	else
 	{
-		if (files_to_read > 1 && !errno)
+		if (*(params->files_to_read) > 1 && !errno)
 			print_name(str);
-		if (bytes_to_read)
-			print_n_bytes(file, bytes_to_read, file_size);
+		if (*(params->bytes_to_read))
+			print_n_bytes(file, *params->bytes_to_read, file_size);
 		else
 			print_ten(file, file_size);
 	}

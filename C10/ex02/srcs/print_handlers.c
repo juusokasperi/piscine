@@ -6,25 +6,28 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:38:11 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 13:38:10 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 15:31:31 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-void	print_error(char *str)
+void	print_error(char *str, char *prog_name)
 {
-	ft_putstr("tail: cannot open '", 2);
+	ft_putstr(prog_name, 2);
+	ft_putstr(": cannot open '", 2);
 	ft_putstr(str, 2);
 	ft_putstr("' for reading: ", 2);
 	ft_putstr(strerror(errno), 2);
 	ft_putstr("\n", 2);
 }
 
-void	print_error_dir(char *str)
+void	print_error_dir(char *str, char *prog_name, int files_to_read)
 {
-	print_name(str);
-	ft_putstr("tail: error reading '", 2);
+	if (files_to_read > 1)
+		print_name(str);
+	ft_putstr(prog_name, 2);
+	ft_putstr(": error reading '", 2);
 	ft_putstr(str, 2);
 	ft_putstr(": ", 2);
 	ft_putstr(strerror(errno), 2);
