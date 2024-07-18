@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:15:05 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/18 16:54:07 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:50:04 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	main(int argc, char **argv)
 		print_row(info.buffer, info.offset, info.partial_size);
 	info.offset += info.partial_size;
 	if (info.offset == 0)
-		return (err_all_failed(argv[0]));
+		return (0);
 	write_address(info.offset, 1);
 	return (free_files(&files, argc), 0);
 }
