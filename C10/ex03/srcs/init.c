@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:39:05 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 17:44:10 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 16:38:00 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	init(char ***files, int flag_c, int *argc)
 	{
 		*files = (char **)malloc(1 * sizeof(char *));
 		(*files)[0] = 0;
+		*argc = 0;
 		return (0);
 	}
 	*argc = *argc - 1;

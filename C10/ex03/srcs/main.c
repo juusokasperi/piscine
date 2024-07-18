@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 11:15:05 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/18 16:00:39 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 16:54:07 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	process_buffer(t_file_info *info, int *is_repeated)
 		*is_repeated = 0;
 	}
 	str_copy(info->prev_buffer, info->buffer, 16);
+	info->offset += info->partial_size;
 	info->partial_size = 0;
-	info->offset += 16;
 }
 
 int	ft_display_file(char *str, t_file_info *info, char *prog_name)
