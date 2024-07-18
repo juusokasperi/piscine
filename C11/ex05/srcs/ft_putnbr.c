@@ -6,10 +6,11 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 20:54:13 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/04 12:51:15 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 17:25:28 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "doop.h"
 #include <unistd.h>
 
 void	print_char(char c)

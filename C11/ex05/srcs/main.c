@@ -6,15 +6,12 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 11:32:18 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/18 12:24:45 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 17:25:25 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "doop.h"
 #include <unistd.h>
-#include "ft_doop.h"
-
-int	ft_atoi(char *str);
-void	ft_putnbr(int nb);
 
 int	ft_strlen(char *str)
 {

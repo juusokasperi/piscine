@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:22:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/18 15:32:53 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:20:53 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ int	init(char ***files, char **argv, t_tail_params *params)
 	if (params->flag_c == -1)
 		return (1);
 	error = 0;
-	if (params->flag_c == *(params->files_to_read))
-		error = print_missing_arg();
+	if (params->flag_c == params->files_to_read)
+		error = print_missing_arg(argv[0]);
 	else
 	{
-		*(params->bytes_to_read) = ft_atoi(argv[params->flag_c + 1]);
-		if (*(params->bytes_to_read) == -1)
-			error = print_invalid_bytes(argv[params->flag_c + 1]);
+		params->bytes_to_read = ft_atoi(argv[params->flag_c + 1]);
+		if (params->bytes_to_read == -1)
+			error = print_invalid_bytes(argv[params->flag_c + 1], argv[0]);
 		else
-			*(params->files_to_read) -= 2;
+			params->files_to_read -= 2;
 	}
-	if (error || *(params->files_to_read) == 0)
+	if (error || params->files_to_read == 0)
 	{
 		*files = (char **)malloc(1 * sizeof(char *));
 		(*files)[0] = 0;
@@ -69,7 +69,7 @@ char	**fill_files(char **argv, t_tail_params *params)
 
 	if (!init(&files, argv, params))
 		return (files);
-	files = (char **)malloc((*(params->files_to_read)) * sizeof(char *));
+	files = (char **)malloc((params->files_to_read) * sizeof(char *));
 	i = 1;
 	y = 0;
 	while (argv[i])
@@ -95,7 +95,7 @@ char	**check_flag_c(char **argv, t_tail_params *params)
 
 	i = 0;
 	params->flag_c = -1;
-	while (i <= *(params->files_to_read))
+	while (i <= params->files_to_read)
 	{
 		params->flag_c = has_flag_c(argv[i], i);
 		if (params->flag_c >= 0)

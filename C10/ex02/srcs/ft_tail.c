@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:30:22 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/18 15:30:25 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 19:13:46 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,15 @@ void	ft_tail(char *str, t_tail_params *params, int i, char *prog_name)
 			|| (previous_errno && errno == 21)))
 		write(1, "\n", 1);
 	if (errno == 21)
-		print_error_dir(str, prog_name, *params->files_to_read);
+		print_error_dir(str, prog_name, params->files_to_read);
 	else if (errno)
 		print_error(str, prog_name);
 	else
 	{
-		if (*(params->files_to_read) > 1 && !errno)
+		if (params->files_to_read > 1 && !errno)
 			print_name(str);
-		if (*(params->bytes_to_read))
-			print_n_bytes(file, *params->bytes_to_read, file_size);
+		if (params->flag_c != -1)
+			print_n_bytes(file, params->bytes_to_read, file_size);
 		else
 			print_ten(file, file_size);
 	}

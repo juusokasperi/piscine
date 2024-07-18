@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:37:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/18 15:35:52 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 19:12:48 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,27 +57,23 @@ int	main(int argc, char **argv)
 {
 	int				i;
 	t_tail_params	params;
-	int				bytes_to_read;
-	int				files_to_read;
 	char			**files;
 
-	bytes_to_read = 0;
-	files_to_read = argc - 1;
-	params.files_to_read = &files_to_read;
-	params.bytes_to_read = &bytes_to_read;
+	params.files_to_read = argc - 1;
 	files = check_flag_c(argv, &params);
-	if (*params.files_to_read == 0)
+	if (params.files_to_read == 0 && params.bytes_to_read)
 	{
-		handle_no_arguments(*params.bytes_to_read);
-		return (free_files(&files, *params.files_to_read), 0);
+		handle_no_arguments(params.bytes_to_read);
+		return (free_files(&files, params.files_to_read), 0);
 	}
-	else if (!files[0] && params.files_to_read > 0)
+	else if ((!files[0] && params.files_to_read > 0)
+		|| params.bytes_to_read == 0)
 		return (free_files(&files, 1), 1);
 	i = 0;
-	while (i < *params.files_to_read)
+	while (i < params.files_to_read)
 	{
 		ft_tail(files[i], &params, i, argv[0]);
 		i++;
 	}
-	return (free_files(&files, *params.files_to_read), 0);
+	return (free_files(&files, params.files_to_read), 0);
 }

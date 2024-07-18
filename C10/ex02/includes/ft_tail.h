@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:23:53 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/18 15:31:00 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:19:04 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef struct s_tail_params
 {
-	int		*files_to_read;
-	int		*bytes_to_read;
+	int		files_to_read;
+	int		bytes_to_read;
 	int		flag_c;
 }	t_tail_params;
 
@@ -34,8 +34,8 @@ void	print_error(char *str, char *prog_name);
 void	print_name(char *str);
 void	print_ten(char *file, int file_size);
 void	print_n_bytes(char *file, int bytes_to_read, int file_size);
-int		print_missing_arg(void);
-int		print_invalid_bytes(char *str);
+int		print_missing_arg(char *prog_name);
+int		print_invalid_bytes(char *str, char *prog_name);
 char	**check_flag_c(char **argv, t_tail_params *params);
 
 #endif
