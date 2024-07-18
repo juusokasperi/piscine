@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:49:17 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 18:11:08 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 11:28:29 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int	ft_increment(int nb)
 	return (nb + 1);
 }
 
-int	*ft_map(int *tab, int length, int(*f)(int));
+int	*ft_map(int *tab, int length, int (*f)(int));
 
 int	main(void)
 {
-	int *array;
-	int	nbr_array[6] = { 0, 1, 2, 3, 4, 5 };
+	int	*array;
+	int	nbr_array[6] = {0, 1, 2, 3, 4, 5};
 	int	i;
 
 	i = 0;

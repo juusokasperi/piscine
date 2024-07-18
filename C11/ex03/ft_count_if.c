@@ -6,13 +6,11 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:41:40 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 20:05:44 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 11:31:17 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_count_if(char **tab, int length, int(*f)(char*))
+int	ft_count_if(char **tab, int length, int (*f)(char*))
 {
 	int	i;
 	int	count;

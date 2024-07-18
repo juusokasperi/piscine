@@ -6,13 +6,11 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 18:12:15 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 19:35:27 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 11:29:30 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_any(char **tab, int(*f)(char*))
+int	ft_any(char **tab, int (*f)(char*))
 {
 	if (f(*tab))
 		return (1);

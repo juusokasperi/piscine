@@ -6,7 +6,7 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:49:17 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/07/17 18:01:49 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/07/18 11:28:02 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ void	ft_putnbr(int nb)
 	}
 }
 
-void	ft_foreach(int *tab, int length, void(*f)(int));
+void	ft_foreach(int *tab, int length, void (*f)(int));
 
 int	main(void)
 {
-	int	nbr_array[6] = { 0, 1, 2, 3, 4, 5 };
+	int	nbr_array[6] = {0, 1, 2, 3, 4, 5};
+
 	ft_foreach(nbr_array, 6, &ft_putnbr);
 }
