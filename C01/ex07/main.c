@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/28 19:34:45 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 12:51:26 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/08/05 14:25:48 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/08/05 14:30:18 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_rev_int_tab(int *tab, int size)
-{
-	int temp;
-	int i;
+void	ft_rev_int_tab(int *tab, int size);
 
-	i = 0;
-	while(i < size / 2)
-	{
-		temp = tab[i];
-		tab[i] = tab[size - (i + 1)];
-		tab[size - (i + 1)] = temp;
-		i++;
-	}
-}
-
-void	main(void)
+int	main(void)
 {
 	int	tab[]= {0, 1, 2, 3, 4};
-	char	c;
+	int	i;
 
+	i = 0;
+	printf("Before reversing tab is:\n");
+	while (i < 4)
+	{
+		printf("Tab[%i] is %i, ", i, tab[i]);
+		i++;
+	}
+	printf("Tab[%i] is %i.\n", i, tab[i]);
 	ft_rev_int_tab(tab, 5);
-	c = tab[0] + '0';
-	write(1, &c, 1);
-	c = tab[1] + '0';
-        write(1, &c, 1);
-	c = tab[2] + '0';
-	write(1, &c, 1);
-	c = tab[3] + '0';
-        write(1, &c, 1);
-	c = tab[4] + '0';
-        write(1, &c, 1);
-
+	i = 0;
+	printf("After reversing tab is:\n");
+	while (i < 4)
+	{
+		printf("Tab[%i] is %i, ", i, tab[i]);
+		i++;
+	}
+	printf("Tab[%i] is %i.\n", i, tab[i]);
+	return (0);
 }

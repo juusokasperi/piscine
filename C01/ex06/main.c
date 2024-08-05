@@ -1,46 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testing_pointers.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 17:57:49 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/27 19:05:02 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/08/05 14:23:02 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/08/05 14:24:45 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-
-void	ft_ft(int *nbr)
-{
-	char c;
-	*nbr = 42;
-}
-
+int	ft_strlen(char *str);
 
 int	main(void)
 {
-	int a;
-	int *nbr;
-	char c;
+	char	*str;
 
-	nbr = &a;
-
-	a = 1;
-	
-	ft_ft(nbr);
-	c = a / 10 + '0';
-        write(1, &c, 1);
-        c = a % 10 + '0';
-        write(1, &c, 1);
-
-	/*	
-	*nbr = 10;
-	c = *nbr / 10 + '0';
-	write(1, &c, 1);
-	c = *nbr % 10 + '0';
-	write(1, &c, 1);
-*/
+	str = "Test";
+	printf("Length of \"%s\" is %i\n", str, ft_strlen(str));
+	return (0);
 }

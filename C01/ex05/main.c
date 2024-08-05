@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/28 19:27:12 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/08/05 14:25:13 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/08/05 14:20:02 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/08/05 14:23:59 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+void	ft_putstr(char *str);
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+int	main(void)
+{
+	char	*str;
+
+	str = "Testi String.\n";
+	ft_putstr(str);
+	return (0);
 }

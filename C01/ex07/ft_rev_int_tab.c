@@ -6,11 +6,9 @@
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 19:34:45 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/29 12:54:18 by jrinta-          ###   ########.fr       */
+/*   Updated: 2024/08/05 14:30:25 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	ft_rev_int_tab(int *tab, int size)
 {

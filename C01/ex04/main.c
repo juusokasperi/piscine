@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 20:23:20 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/28 11:26:01 by juusorinta       ###   ########.fr       */
+/*   Created: 2024/08/05 14:17:48 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/08/05 14:24:04 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	print_char(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_ultimate_div_mod(int *a, int *b)
-{
-	int	c;
-
-	c = *a / *b;
-	*b = *a % *b;
-	*a = c;
-}
+void	ft_ultimate_div_mod(int *a, int *b);
 
 int	main(void)
 {
@@ -34,6 +22,7 @@ int	main(void)
 	a = 17;
 	b = 5;
 	ft_ultimate_div_mod(&a, &b);
-	print_char(a + '0');
-	print_char(b + '0');
+	printf("17 / 5 = %i\n", a);
+	printf("17 %% 5 = %i\n", b);
+	return (0);
 }

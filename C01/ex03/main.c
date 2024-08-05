@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrinta- <jrinta-@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/28 19:27:12 by jrinta-           #+#    #+#             */
-/*   Updated: 2024/06/28 19:33:56 by jrinta-          ###   ########.fr       */
+/*   Created: 2024/08/05 14:14:39 by jrinta-           #+#    #+#             */
+/*   Updated: 2024/08/05 14:17:13 by jrinta-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-int	ft_strlen(char *str)
+void	ft_div_mod(int a, int b, int *div, int *mod);
+
+int	main(void)
 {
+	int	div;
+	int	mod;
 	int	a;
+	int	b;
 
-	a = 0;
-	while (*str != '\0')
-	{
-		a++;
-		str = str + 1;
-	}
-	return (a);
+	a = 17;
+	b = 5;
+	ft_div_mod(a, b, &div, &mod);
+	printf("%i / %i = %i\n", a, b, div);
+	printf("%i %% %i = %i\n", a, b, mod);
+	return (0);
 }
