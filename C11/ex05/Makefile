@@ -14,7 +14,7 @@ CC = cc
 
 CFLAGS += -Wall -Wextra -Werror -I$I
 
-NAME = ft_doop
+NAME = doop
 
 all: $(NAME)
 

@@ -1,0 +1,4 @@
+# Hive Helsinki / 42 Piscine, July 2024
+- Where I got to;
+  - C10 hexdump not completely functional yet.
+  - C11 not ready (ex03, ex04 needs fixing, didn't have time to finish ex06 & ex07)
