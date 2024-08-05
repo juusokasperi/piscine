@@ -1,4 +1,4 @@
-# Hive Helsinki / 42 Piscine, July 2024
+# Hive Helsinki / 42 Piscine
 _Level 7 (36%)_
 - Where I got to;
   - C10 hexdump not completely functional yet.
